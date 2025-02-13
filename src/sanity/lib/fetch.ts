@@ -17,7 +17,7 @@ export async function sanity<QueryString extends string>({
   const data = await sanityFetch<QueryString>({
     query,
     params,
-    perspective: enableDrafts ? "previewDrafts" : "published",
+    perspective: enableDrafts ? "drafts" : "published",
     stega: isDraftMode,
     tag,
   });

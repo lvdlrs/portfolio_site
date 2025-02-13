@@ -7,26 +7,11 @@
   --rounded: 16px;
   --rounded-button: 8px;
 
-  --container: 1388px;
+  --container: 1440px;
   --container-body: 680px;
 
   --white: 0deg 0% 100%;
   --black: 0deg 0% 0%;
-  --cream: 31 51% 95%;
-  --cream-dark: 38 30% 90%;
-  --grey: 38 30% 90%;
-  --grey-dark: 248 7% 44%;
-  --blue-light: 248 7% 44%;
-  --blue-light-muted: 223 84% 90%;
-  --blue: 240 73% 49%;
-  --blue-dark-muted: 232 100% 28%;
-  --blue-dark: 238 90% 12%;
-  --yellow: 45 77% 78%;
-  --yellow-light: 45 78% 87%;
-  --green: 45 78% 87%;
-  --green-light: 105 55% 87%;
-  --red: 359 78% 84%;
-  --red-light: 359 100% 92%;
 
   --background: var(--cream);
   --background-accent: var(--cream-dark);
