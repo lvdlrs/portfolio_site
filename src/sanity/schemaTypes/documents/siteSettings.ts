@@ -3,17 +3,17 @@ import { defineField, defineType } from "sanity";
 
 export const siteSettings = defineType({
   name: "siteSettings",
-  title: "Sideinnstillinger",
+  title: "Site Settings",
   type: "document",
   icon: CogIcon,
   groups: [
     {
-      title: "Innhold",
+      title: "Contents",
       name: "content",
       default: true,
     },
     {
-      title: "Sporing",
+      title: "Analytics",
       name: "analytics",
     },
     {
@@ -30,38 +30,25 @@ export const siteSettings = defineType({
     }),
     defineField({
       name: "title",
-      title: "Sitetittel",
+      title: "Site Title",
       type: "string",
       validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
       group: "content",
     }),
     defineField({
       name: "description",
-      title: "Sidebeskrivelse",
+      title: "Site Description",
       type: "simpleRichText",
       group: "content",
     }),
     defineField({
       name: "headerNavigation",
-      title: "Topp navigasjon",
+      title: "Main Manvigation",
       type: "array",
       of: [
         defineField({
           name: "menuItem",
-          title: "Menypunkt",
-          type: "link",
-        }),
-      ],
-      group: "content",
-    }),
-    defineField({
-      name: "footerNavigation",
-      title: "Bunn navigasjon",
-      type: "array",
-      of: [
-        defineField({
-          name: "menuItem",
-          title: "Menypunkt",
+          title: "Menu Item",
           type: "link",
         }),
       ],

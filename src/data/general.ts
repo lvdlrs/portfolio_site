@@ -20,21 +20,6 @@ export async function getLayoutData() {
             _key,
             ${LINK_FRAGMENT}
           }
-        },
-        "footer": {
-          title,
-          logo {
-            ${IMAGE_FRAGMENT}
-          },
-          description {
-            text[]{
-              ${SIMPLE_RICH_TEXT_FRAGMENT}
-            }
-          },
-          footerNavigation[]{
-            _key,
-            ${LINK_FRAGMENT}
-          }
         }
       }`,
   );

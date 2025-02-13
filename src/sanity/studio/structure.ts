@@ -3,71 +3,63 @@ import type { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("Innhold")
+    .title("Contents")
     .items([
       S.listItem()
         .id("frontPage")
         .schemaType("frontPage")
-        .title("Forside")
+        .title("Homepage")
         .child(
           S.editor()
             .id("frontPage")
             .schemaType("frontPage")
             .documentId("frontPage")
-            .title("Forside"),
+            .title("Homepage"),
         ),
-      S.documentTypeListItem("page").title("Sider"),
+      S.documentTypeListItem("page").title("Page"),
       S.listItem()
-        .title("Ressurser")
+        .title("Resources")
         .icon(DatabaseIcon)
         .child(
           S.list()
-            .title("Ressurser")
+            .title("Resources")
             .items([
-              S.documentTypeListItem("post").title("Artikler"),
+              S.documentTypeListItem("post").title("Articles"),
               S.divider(),
-              S.documentTypeListItem("tag").title("Emner"),
+              S.documentTypeListItem("tag").title("Tags"),
               S.listItem()
                 .id("blog")
                 .schemaType("archivePage")
-                .title("Blogginnstillinger")
+                .title("Articles")
                 .child(
                   S.editor()
                     .id("blog")
                     .schemaType("archivePage")
                     .documentId("blog")
-                    .title("Blogginnstillinger"),
+                    .title("Archive"),
                 ),
             ]),
         ),
       S.divider(),
-      S.documentTypeListItem("gene").title("Gen"),
-      S.documentTypeListItem("allele").title("Alleler"),
-      S.documentTypeListItem("result").title("Resultater"),
-      S.divider(),
-      S.documentTypeListItem("drug").title("Legemiddel"),
-      S.documentTypeListItem("drugCategory").title("Legemiddelkategori"),
-      S.documentTypeListItem("therapy").title("Behandling"),
-      S.divider(),
       S.listItem()
-        .title("Globalt innhold")
+        .title("Global Settings")
         .icon(EarthGlobeIcon)
         .child(
           S.list()
-            .title("Globalt innhold")
+            .title("Global Settings")
             .items([
               S.listItem()
                 .id("siteSettings")
                 .schemaType("siteSettings")
-                .title("Sideinnstillinger")
+                .title("Site Settings")
                 .child(
                   S.editor()
                     .id("siteSettings")
                     .schemaType("siteSettings")
                     .documentId("siteSettings")
-                    .title("Sideinnstillinger"),
+                    .title("Site Settings"),
                 ),
-              S.documentTypeListItem("globalBlock").title("Globale blokker"),
+              S.documentTypeListItem("globalBlock").title("Global Blocks"),
             ]),
         ),
     ]);

@@ -25,7 +25,10 @@ const config: Config = {
       primary: "hsl(var(--primary))",
       foreground: "hsl(var(--foreground))",
       border: "hsl(var(--border))",
-      white: "hsl(var(--white))",
+      white: {
+        DEFAULT: "hsl(var(--white))",
+        dark: "hsl(var(--white-dark))"
+      },
       black: "hsl(var(--black))",
     },
     extend: {

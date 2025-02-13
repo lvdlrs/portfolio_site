@@ -5,7 +5,6 @@ import { apiVersion, dataset, projectId } from "../env";
 import { schema } from "../schemaTypes";
 import { structure } from "../studio/structure";
 import { defineDocuments, presentationTool } from "sanity/presentation";
-import { nbNOLocale } from "@sanity/locale-nb-no";
 import { locations } from "../studio/locations";
 import { IconManager } from "sanity-plugin-icon-manager";
 import { SINGLETON_TYPES } from "./constants";
@@ -19,11 +18,11 @@ export const config = defineConfig({
   icon: HomeIcon,
   plugins: [
     structureTool({
-      title: "Innhold",
+      title: "Contents",
       structure,
     }),
     presentationTool({
-      title: "Forhåndsvisning",
+      title: "Preview",
       previewUrl: {
         previewMode: {
           enable: "/api/preview/enable",
@@ -50,7 +49,6 @@ export const config = defineConfig({
     isDev
       ? visionTool({ defaultApiVersion: apiVersion })
       : { name: "vision-disabled" },
-    nbNOLocale(),
     IconManager({
       availableCollections: ["material-symbols"],
       defaults: {
