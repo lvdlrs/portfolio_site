@@ -3,7 +3,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const defaultRichText = defineType({
   name: "defaultRichText",
-  title: "Innhold",
+  title: "Contents",
   type: "object",
   fields: [
     defineField({
@@ -62,7 +62,7 @@ export const defaultRichText = defineType({
         }),
         defineField({
           name: "accordion",
-          title: "Nedtrekkinnhold",
+          title: "NedtrekkContents",
           type: "accordion",
         }),
       ],

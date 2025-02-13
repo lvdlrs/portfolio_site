@@ -8,7 +8,7 @@ export const accordionSection = defineType({
   icon: BlockElementIcon,
   groups: [
     {
-      title: "Innhold",
+      title: "Contents",
       name: "content",
       default: true,
     },
@@ -26,7 +26,7 @@ export const accordionSection = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "simpleRichText",
       group: "content",
     }),
@@ -43,12 +43,12 @@ export const accordionSection = defineType({
     }),
     defineField({
       name: "items",
-      title: "Nedtrekkinnhold",
+      title: "NedtrekkContents",
       type: "array",
       of: [
         defineArrayMember({
           name: "item",
-          title: "Innhold",
+          title: "Contents",
           type: "object",
           fields: [
             defineField({

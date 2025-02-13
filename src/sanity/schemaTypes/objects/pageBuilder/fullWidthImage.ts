@@ -14,7 +14,7 @@ export const fullWidthImage = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "simpleRichText",
     }),
     defineField({

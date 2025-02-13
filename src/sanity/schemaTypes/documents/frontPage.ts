@@ -7,7 +7,7 @@ export const frontPage = defineType({
   type: "document",
   icon: HomeIcon,
   groups: [
-    { title: "Innhold", name: "content", default: true },
+    { title: "Contents", name: "content", default: true },
     { title: "SEO", name: "seo" },
   ],
   fields: [
@@ -21,7 +21,7 @@ export const frontPage = defineType({
     }),
     defineField({
       name: "pageBuilder",
-      title: "Innhold",
+      title: "Contents",
       type: "pageBuilder",
       group: "content",
     }),

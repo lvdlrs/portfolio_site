@@ -2,7 +2,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const simpleRichText = defineType({
   name: "simpleRichText",
-  title: "Innhold",
+  title: "Contents",
   type: "object",
   fields: [
     defineField({

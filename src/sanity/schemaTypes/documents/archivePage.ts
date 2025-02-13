@@ -9,7 +9,7 @@ export const archivePage = defineType({
   groups: [
     {
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       default: true,
     },
     {

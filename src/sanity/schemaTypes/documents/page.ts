@@ -7,7 +7,7 @@ export const page = defineType({
   type: "document",
   icon: DashboardIcon,
   groups: [
-    { title: "Innhold", name: "content", default: true },
+    { title: "Contents", name: "content", default: true },
     { title: "SEO", name: "seo" },
   ],
   fields: [
@@ -37,11 +37,11 @@ export const page = defineType({
     }),
     defineField({
       name: "contentType",
-      title: "Innholdstype",
+      title: "Contentsstype",
       type: "string",
       options: {
         list: [
-          { title: "Tekstinnhold", value: "text" },
+          { title: "TekstContents", value: "text" },
           { title: "Sidebygger", value: "builder" },
         ],
       },
@@ -51,14 +51,14 @@ export const page = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "defaultRichText",
       hidden: ({ parent }) => parent?.contentType !== "text",
       group: "content",
     }),
     defineField({
       name: "pageBuilder",
-      title: "Innhold",
+      title: "Contents",
       type: "pageBuilder",
       hidden: ({ parent }) => parent?.contentType !== "builder",
       group: "content",

@@ -34,12 +34,12 @@ export const pageBuilder = defineType({
         defineArrayMember({
           name: "globalContent",
           type: "object",
-          title: "Globalt innhold",
+          title: "Globalt Contents",
           icon: EarthAmericasIcon,
           fields: [
             defineField({
               name: "globalBlock",
-              title: "Innhold",
+              title: "Contents",
               type: "reference",
               to: [{ type: "globalBlock" }],
               options: {

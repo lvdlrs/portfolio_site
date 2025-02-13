@@ -7,7 +7,7 @@ export const post = defineType({
   type: "document",
   icon: DocumentTextIcon,
   groups: [
-    { title: "Innhold", name: "content", default: true },
+    { title: "Contents", name: "content", default: true },
     { title: "SEO", name: "seo" },
   ],
   fields: [
@@ -56,7 +56,7 @@ export const post = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "defaultRichText",
       group: "content",
     }),

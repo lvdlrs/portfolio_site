@@ -8,7 +8,7 @@ export const textMedia = defineType({
   icon: BlockElementIcon,
   groups: [
     {
-      title: "Innhold",
+      title: "Contents",
       name: "content",
       default: true,
     },
@@ -61,7 +61,7 @@ export const textMedia = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "simpleRichText",
       group: "content",
     }),

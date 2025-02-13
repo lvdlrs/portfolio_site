@@ -9,7 +9,7 @@ export const cardSection = defineType({
   icon: BlockElementIcon,
   groups: [
     {
-      title: "Innhold",
+      title: "Contents",
       name: "content",
       default: true,
     },
@@ -44,7 +44,7 @@ export const cardSection = defineType({
     }),
     defineField({
       name: "cards",
-      title: "Innhold",
+      title: "Contents",
       type: "array",
       of: [
         defineArrayMember({

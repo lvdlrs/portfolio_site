@@ -7,7 +7,7 @@ export const textContent = defineType({
   type: "object",
   icon: BlockElementIcon,
   groups: [
-    { title: "Innhold", name: "content", default: true },
+    { title: "Contents", name: "content", default: true },
     { title: "Stiler", name: "styles" },
   ],
   fields: [
@@ -19,7 +19,7 @@ export const textContent = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "simpleRichText",
       group: "content",
     }),

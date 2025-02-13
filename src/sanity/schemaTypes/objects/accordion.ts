@@ -14,7 +14,7 @@ export const accordion = defineField({
     }),
     defineField({
       name: "items",
-      title: "Innhold",
+      title: "Contents",
       type: "array",
       of: [
         defineArrayMember({
@@ -30,7 +30,7 @@ export const accordion = defineField({
             }),
             defineField({
               name: "content",
-              title: "Innhold",
+              title: "Contents",
               type: "simpleRichText",
             }),
           ],
@@ -44,8 +44,8 @@ export const accordion = defineField({
     },
     prepare({ title }) {
       return {
-        title: title || "Nedtrekkinnhold",
-        subtitle: title ? "Nedtrekkinnhold" : undefined,
+        title: title || "NedtrekkContents",
+        subtitle: title ? "NedtrekkContents" : undefined,
       };
     },
   },

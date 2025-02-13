@@ -14,7 +14,7 @@ export const fullWidthVideo = defineType({
     }),
     defineField({
       name: "content",
-      title: "Innhold",
+      title: "Contents",
       type: "simpleRichText",
     }),
     defineField({
