@@ -40,7 +40,7 @@ export default async function RootLayout({
       >
         <Header {...(data?.header ?? undefined)} />
         <main>{children}</main>
-        <Footer {...(data?.footer ?? undefined)} />
+        <Footer />
         {isDraftMode && (
           <Fragment>
             <VisualEditing />
