@@ -26,6 +26,8 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "get-video-id": "^4.1.7",
+    "lucide-react": "^0.475.0",
+    "motion": "^12.4.2",
     "next": "15.1.5",
     "next-sanity": "^9.8.16",
     "react": "^18.3.1",
