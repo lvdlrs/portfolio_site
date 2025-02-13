@@ -1,7 +1,7 @@
 import { Footer } from "@/components/shared/footer";
 import { Header } from "@/components/shared/header";
 import { getLayoutData } from "@/data/general";
-import { font, monoFont } from "@/lib/font";
+import { inter, alegrey } from "@/lib/font";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { VisualEditing } from "next-sanity";
@@ -36,7 +36,7 @@ export default async function RootLayout({
       )}
       <body
         id="top"
-        className={`${font.variable} ${monoFont.variable} grid min-h-screen max-w-[100vw] grid-rows-[auto_1fr_auto] overflow-x-clip bg-background antialiased [font-family:var(--font-sans)]`}
+        className={`${inter.variable} ${alegrey.variable} grid min-h-screen max-w-[100vw] grid-rows-[auto_1fr_auto] overflow-x-clip bg-background antialiased [font-family:var(--font-sans)]`}
       >
         <Header {...(data?.header ?? undefined)} />
         <main>{children}</main>
