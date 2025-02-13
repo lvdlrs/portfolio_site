@@ -30,7 +30,7 @@ export default async function RootLayout({
   const { data } = await getLayoutData();
 
   return (
-    <html lang="no-nb" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       {data?.googleTagManagerId && (
         <GoogleTagManager gtmId={data.googleTagManagerId} />
       )}
