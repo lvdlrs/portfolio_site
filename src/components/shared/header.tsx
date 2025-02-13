@@ -4,60 +4,41 @@ import { urlFor } from "@/sanity/lib/image";
 import { LayoutQueryResult } from "@/sanity/types";
 import Image from "next/image";
 import Link from "next/link";
-import { MenuItem } from "./menu-item";
-import { MobileMenu } from "./mobile-menu";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Dock, DockIcon, DockItem, DockLabel } from "../ui/dock";
+import {
+  Activity,
+  Component,
+  HomeIcon,
+  Mail,
+  Package,
+  ScrollText,
+  SunMoon,
+} from 'lucide-react';
 
 export type HeaderProps = NonNullable<LayoutQueryResult>["header"];
 
 export function Header(props: HeaderProps) {
-  const pathname = usePathname();
-
-  const isHome = pathname === "/";
 
   return (
-    <header className="fixed bottom-[80px] z-50 mx-auto w-full px-2.5">
+    <header className="fixed left-1/2 -translate-x-1/2 bottom-[80px] z-50 mx-auto w-fit px-2.5">
+
       <nav
-        className={cn(
-          "mx-auto mt-2.5 flex h-header items-center rounded-lg bg-white px-4 shadow",
-          isHome ? "w-fit justify-center" : "max-w justify-between",
-        )}
+        className=""
       >
-        {!isHome && (
-          <Link
-            className="relative z-40 block text-3xl/none font-bold text-primary hover:text-foreground"
-            href="/"
-          >
-            {props.logo?.asset?._ref ? (
-              <Image
-                src={urlFor(props.logo)?.width(100).url() ?? ""}
-                alt={props.title}
-                width={100}
-                height={Math.floor(
-                  100 / (props.logo.metadata?.aspectRatio ?? 1),
-                )}
-              />
-            ) : (
-              props.title || "Missing title"
-            )}
-          </Link>
-        )}
         <div>
-          <ul className="hidden items-center gap-8 md:flex">
-            {props?.headerNavigation?.map((menuItem) => {
-              return (
-                <li key={menuItem._key}>
-                  <MenuItem href={`/${menuItem.href}`}>
-                    {menuItem.label}
-                  </MenuItem>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="block md:hidden">
-            <MobileMenu navigation={props.headerNavigation ?? []} />
-          </div>
+          <Dock className='items-end pb-3'>
+          {props?.headerNavigation?.map((item) => (
+            <DockItem
+              key={item._key}
+              className='aspect-square rounded-full bg-white-dark dark:bg-black'
+            >
+              <DockLabel>{item.label}</DockLabel>
+              {item.label == 'Home' ? <DockIcon><HomeIcon className='h-full w-full text-primary dark:text-white' /></DockIcon> : ""}
+              
+            </DockItem>
+          ))}
+        </Dock>
         </div>
       </nav>
     </header>
