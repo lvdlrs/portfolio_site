@@ -36,7 +36,7 @@ export default async function RootLayout({
       )}
       <body
         id="top"
-        className={`${inter.variable} ${alegrey.variable} grid min-h-screen max-w-[100vw] grid-rows-[auto_1fr_auto] overflow-x-clip bg-background antialiased [font-family:var(--font-sans)]`}
+        className={`${inter.variable} ${alegrey.variable} grid min-h-screen max-w-[100vw] grid-rows-[1fr_auto] overflow-x-clip bg-background antialiased [font-family:var(--font-sans)]`}
       >
         <Header {...(data?.header ?? undefined)} />
         <main>{children}</main>

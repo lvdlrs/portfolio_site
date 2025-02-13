@@ -17,7 +17,7 @@ export function Header(props: HeaderProps) {
   const isHome = pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 mx-auto w-full px-2.5">
+    <header className="fixed bottom-[80px] z-50 mx-auto w-full px-2.5">
       <nav
         className={cn(
           "mx-auto mt-2.5 flex h-header items-center rounded-lg bg-white px-4 shadow",

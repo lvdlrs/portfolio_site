@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --header: 55px;
+  --header: 0px;
   --rounded: 16px;
   --rounded-button: 8px;
 
