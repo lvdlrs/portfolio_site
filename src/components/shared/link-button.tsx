@@ -20,7 +20,7 @@ export function LinkButton({
   return (
     <Link
       className={cn(
-        "rounded-button relative block text-center sm:w-fit whitespace-nowrap border-2 px-7 py-3 text-base/none font-medium transition-all",
+        "rounded-md relative block text-center sm:w-fit whitespace-nowrap border-2 px-7 py-4 text-base/none font-medium transition-all",
         {
           "hover:bg-foreground bg-primary border-transparent text-white":
             variant === "default",
