@@ -17,7 +17,7 @@ export const globalBlock = defineType({
     }),
     defineField({
       name: "blocks",
-      title: "Blokker",
+      title: "Blocks",
       type: "array",
       of: [
         ...blocks.map((block) => {
