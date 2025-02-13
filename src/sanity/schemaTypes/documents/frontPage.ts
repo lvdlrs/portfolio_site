@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity";
 
 export const frontPage = defineType({
   name: "frontPage",
-  title: "Forside",
+  title: "Homepage",
   type: "document",
   icon: HomeIcon,
   groups: [
@@ -13,11 +13,11 @@ export const frontPage = defineType({
   fields: [
     defineField({
       name: "title",
-      title: "Intern tittel",
+      title: "Internal Title",
       type: "string",
       hidden: true,
       readOnly: true,
-      initialValue: "Forside",
+      initialValue: "Homepage",
     }),
     defineField({
       name: "pageBuilder",
