@@ -10,6 +10,12 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      'sm': '480px',
+      'md': '769px',
+      'lg': '1024px',
+      'xl': '1440px'
+    },
     fontFamily: {
       sans: ["var(--font-sans)"],
       serif: ["var(--font-serif)"],
