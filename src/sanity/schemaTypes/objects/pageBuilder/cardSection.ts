@@ -49,7 +49,7 @@ export const cardSection = defineType({
       of: [
         defineArrayMember({
           name: "card",
-          title: "Kort",
+          title: "Card",
           type: "object",
           fields: [
             defineField({
