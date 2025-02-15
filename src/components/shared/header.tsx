@@ -21,7 +21,7 @@ export type HeaderProps = NonNullable<LayoutQueryResult>["header"];
 export function Header(props: HeaderProps) {
 
   return (
-    <header className="fixed left-1/2 -translate-x-1/2 bottom-[80px] z-50 mx-auto w-fit px-2.5">
+    <header className="fixed left-1/2 -translate-x-1/2 bottom-[50px] z-50 mx-auto w-fit px-2.5">
 
       <nav
         className=""
