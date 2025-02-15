@@ -13,14 +13,14 @@ export const page = defineType({
   fields: [
     defineField({
       name: "image",
-      title: "Bilde",
+      title: "Image",
       type: "image",
       group: "content",
       hidden: ({ parent }) => parent?.contentType !== "text",
     }),
     defineField({
       name: "title",
-      title: "Sidetittel",
+      title: "Page Title",
       type: "string",
       validation: (Rule) => Rule.required().error("This field is required"),
       group: "content",
@@ -37,7 +37,7 @@ export const page = defineType({
     }),
     defineField({
       name: "contentType",
-      title: "Contentsstype",
+      title: "Content type",
       type: "string",
       options: {
         list: [
