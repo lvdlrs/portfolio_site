@@ -48,14 +48,15 @@ export function TextMedia(
           <div className={cn("basis-1/2",{
             "basis-3/5": isThreeFourth
           })}>
-
-            {props.title && (
+            {isThreeFourth ? (
+              <div className="md:max-w-[600px] md:mx-auto">
+                {props.title && (
               <Heading
                 className={cn(
                   "text-foreground font-semibold",
                   props.isHero
-                    ? "text-3xl sm:text-5xl"
-                    : "text-2xl sm:text-4xl",
+                    ? "text-4xl md:text-6xl"
+                    : "text-3xl md:text-5xl",
                 )}
               >
                 {props.title}
@@ -85,6 +86,49 @@ export function TextMedia(
                 </ul>
               </div>
             )}
+              </div>
+
+            ) : (
+              <div className="">
+                {props.title && (
+                  <Heading
+                    className={cn(
+                      "text-foreground font-semibold",
+                      props.isHero
+                        ? "text-3xl sm:text-5xl"
+                        : "text-2xl sm:text-4xl",
+                    )}
+                  >
+                    {props.title}
+                  </Heading>
+                )}
+                {props.content?.text && (
+                  <div className="mt-6">
+                    <ProseContent>
+                      <PortableText value={props.content.text ?? []} />
+                    </ProseContent>
+                  </div>
+                )}
+                {showLinks && (
+                  <div className="mt-8">
+                    <ul className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                      {props.links?.map((link, index) => (
+                        <li key={link._key}>
+                          <LinkButton
+                            href={link.href}
+                            variant={index === 0 ? "default" : "ghost"}
+                            inverted={props.variant === "alternative"}
+                          >
+                            {link.label}
+                          </LinkButton>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+
           </div>
           <div className={cn("basis-1/2",{
             "basis-2/5": isThreeFourth
