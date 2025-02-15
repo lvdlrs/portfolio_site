@@ -14,6 +14,8 @@
   --white-dark: 0deg 0% 90.5%;
   --black: 90deg 16.67% 9.41%;
 
+  --black-medium: 0deg 0% 20%;
+
   --background: var(--white);
   --background-accent: var(--black);
 

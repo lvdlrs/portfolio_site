@@ -22,12 +22,11 @@ export function Header(props: HeaderProps) {
 
   return (
     <header className="fixed left-1/2 -translate-x-1/2 bottom-[50px] z-50 mx-auto w-fit px-2.5">
-
       <nav
         className=""
       >
         <div>
-          <Dock className='items-end pb-3'>
+          <Dock className='items-end pb-3' magnification={60}>
           {props?.headerNavigation?.map((item) => (
             <DockItem
               key={item._key}

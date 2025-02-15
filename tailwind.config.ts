@@ -29,7 +29,10 @@ const config: Config = {
         DEFAULT: "hsl(var(--white))",
         dark: "hsl(var(--white-dark))"
       },
-      black: "hsl(var(--black))",
+      black: {
+        DEFAULT: "hsl(var(--black))",
+        medium: "hsl(var(--black-medium))"
+      },
     },
     extend: {
       maxWidth: {
