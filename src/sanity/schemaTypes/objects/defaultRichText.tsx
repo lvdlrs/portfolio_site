@@ -46,7 +46,7 @@ export const defaultRichText = defineType({
               type: "string",
               description:
                 "Beskriv bildet for skjermlesere, brukt for svaksynte",
-              validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+              validation: (Rule) => Rule.required().error("This field is required"),
             }),
             defineField({
               name: "caption",

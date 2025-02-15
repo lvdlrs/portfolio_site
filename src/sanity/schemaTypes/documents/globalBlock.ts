@@ -13,7 +13,7 @@ export const globalBlock = defineType({
       title: "Intern tittel",
       type: "string",
       description: "Brukes for å identifisere blokken i CMS-et",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
     }),
     defineField({
       name: "blocks",
@@ -28,7 +28,7 @@ export const globalBlock = defineType({
       ],
       validation: (Rule) =>
         Rule.required()
-          .error("Feltet er påkrevd")
+          .error("This field is required")
           .min(1)
           .max(1)
           .error("Det kan kun være én blokk"),

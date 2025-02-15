@@ -43,7 +43,7 @@ export const textContent = defineType({
       },
       initialValue: "left",
       group: "styles",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
     }),
     defineField({
       name: "variant",
@@ -57,7 +57,7 @@ export const textContent = defineType({
       },
       initialValue: "default",
       group: "styles",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
     }),
     defineField({
       name: "layout",

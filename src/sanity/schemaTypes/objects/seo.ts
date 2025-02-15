@@ -40,7 +40,7 @@ export const seo = defineType({
         list: ["index", "noindex"],
       },
       initialValue: "index",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       fieldset: "robots",
     }),
     defineField({
@@ -51,7 +51,7 @@ export const seo = defineType({
         list: ["follow", "nofollow"],
       },
       initialValue: "follow",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       fieldset: "robots",
     }),
     defineField({
@@ -59,7 +59,7 @@ export const seo = defineType({
       title: "Canonical URL",
       type: "string",
       description:
-        "Ved å angi en kanonisk URL, kan du fortelle søkemotorer hvilken URL som er den primære for denne siden. Vil automatisk bruke siden sin URL om feltet er tomt.",
+        "By setting a canonical URL, you can tell search engines which URL is the primary one for this page. Will automatically use the page's URL if the field is empty.",
     }),
   ],
 });

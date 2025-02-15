@@ -12,7 +12,7 @@ export const tag = defineType({
       name: "title",
       title: "Tittel",
       type: "string",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
     }),
     defineField({
       name: "slug",
@@ -21,7 +21,7 @@ export const tag = defineType({
       options: {
         source: "title",
       },
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
     }),
   ],
 });

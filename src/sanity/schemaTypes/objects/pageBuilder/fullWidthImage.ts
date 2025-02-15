@@ -34,7 +34,7 @@ export const fullWidthImage = defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
     }),
   ],
   preview: {

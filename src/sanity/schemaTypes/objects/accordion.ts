@@ -26,7 +26,7 @@ export const accordion = defineField({
               name: "title",
               title: "Tittel",
               type: "string",
-              validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+              validation: (Rule) => Rule.required().error("This field is required"),
             }),
             defineField({
               name: "content",

@@ -24,14 +24,14 @@ export const post = defineType({
       name: "title",
       title: "Tittel",
       type: "string",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "content",
     }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       options: {
         source: "title",
       },
@@ -49,7 +49,7 @@ export const post = defineType({
       ],
       validation: (Rule) =>
         Rule.required()
-          .error("Feltet er påkrevd")
+          .error("This field is required")
           .unique()
           .error("Kan ikke ha duplikater"),
       group: "content",

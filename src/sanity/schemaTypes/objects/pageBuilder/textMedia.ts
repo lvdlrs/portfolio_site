@@ -33,7 +33,7 @@ export const textMedia = defineType({
         ],
       },
       initialValue: "image",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "media",
     }),
     defineField({
@@ -83,7 +83,7 @@ export const textMedia = defineType({
         ],
       },
       initialValue: "left",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "styles",
     }),
     defineField({
@@ -97,7 +97,7 @@ export const textMedia = defineType({
         ],
       },
       initialValue: "default",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "styles",
     }),
     defineField({
@@ -111,7 +111,7 @@ export const textMedia = defineType({
         ],
       },
       initialValue: "default",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "styles",
     }),
   ],

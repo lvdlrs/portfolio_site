@@ -32,7 +32,7 @@ export const siteSettings = defineType({
       name: "title",
       title: "Site Title",
       type: "string",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "content",
     }),
     defineField({

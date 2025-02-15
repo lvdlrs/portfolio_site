@@ -22,14 +22,14 @@ export const page = defineType({
       name: "title",
       title: "Sidetittel",
       type: "string",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "content",
     }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       options: {
         source: "title",
       },
@@ -46,7 +46,7 @@ export const page = defineType({
         ],
       },
       initialValue: "text",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("This field is required"),
       group: "content",
     }),
     defineField({
