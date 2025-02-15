@@ -1,39 +1,32 @@
 "use client";
 import { LayoutQueryResult } from "@/sanity/types";
 import Link from "next/link";
-import { Dock, DockIcon, DockItem, DockLabel } from "../ui/dock";
+import { MenuItem } from "./menu-item";
 
 export type HeaderProps = NonNullable<LayoutQueryResult>["header"];
 
 export function Header(props: HeaderProps) {
 
+  const showNav = Boolean(props.headerNavigation?.length ?? 0 > 0);
+
+  if( !showNav ) return;
+
   return (
-    <header className="fixed left-1/2 -translate-x-1/2 bottom-[50px] z-50 mx-auto w-fit px-2.5">
+    <header className="fixed bottom-0 md:bottom-[unset] md:top-1/2 left-0 md:left-[unset] md:right-[30px] -translate-y-1/2 z-50">
       <nav
         className=""
       >
-        <div>
-          <Dock className='items-end pb-3' magnification={60}>
-          {props?.headerNavigation?.map((item) => (
-            <DockItem
-              key={item._key}
-              className='aspect-square rounded-full bg-white-dark dark:bg-black relative'
-            >
-              <Link href={item.href} className="absolute top-0 left-0 w-full h-full block"></Link>
-              <DockLabel>{item.label}</DockLabel>
-              {item.icon?.metadata?.inlineSvg && (
-                <DockIcon>
-                  <div
-                    className="block"
-                    dangerouslySetInnerHTML={{
-                      __html: item.icon.metadata.inlineSvg,
-                    }}
-                  />
-                </DockIcon>
-                )}              
-            </DockItem>
-          ))}
-        </Dock>
+        
+        <div className='flex flex-row gap-4 md:flex-col'>
+          <ul>
+            {props?.headerNavigation?.map((item)=>{
+              return(
+                <li key={item._key}>
+                  <MenuItem label={item.label} href={"/"+item.href} icon={item.icon} />
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </nav>
     </header>

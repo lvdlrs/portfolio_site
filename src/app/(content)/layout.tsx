@@ -1,4 +1,3 @@
-import { Footer } from "@/components/shared/footer";
 import { Header } from "@/components/shared/header";
 import { getLayoutData } from "@/data/general";
 import { inter, alegrey } from "@/lib/font";
@@ -40,7 +39,6 @@ export default async function RootLayout({
       >
         <Header {...(data?.header ?? undefined)} />
         <main>{children}</main>
-        <Footer />
         {isDraftMode && (
           <Fragment>
             <VisualEditing />

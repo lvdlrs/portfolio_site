@@ -4,7 +4,6 @@ import {
   IMAGE_FRAGMENT,
   ICON_LINK_FRAGMENT,
   SEO_FRAGMENT,
-  SIMPLE_RICH_TEXT_FRAGMENT,
 } from "./fragments";
 
 export async function getLayoutData() {

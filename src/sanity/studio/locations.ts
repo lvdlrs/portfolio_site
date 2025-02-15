@@ -8,10 +8,10 @@ export const locations: DocumentLocationResolvers = {
     select: {},
     resolve: () => {
       return {
-        message: "Forhåndsvisning av forside",
+        message: "Homepage preview",
         locations: [
           {
-            title: "Forside",
+            title: "Homepage",
             href: "/",
           },
         ],
@@ -29,7 +29,7 @@ export const locations: DocumentLocationResolvers = {
       }
 
       return {
-        message: "Forhåndsvisning av artikkel",
+        message: "Article preview",
         locations: [
           {
             title: doc.title,
@@ -50,7 +50,7 @@ export const locations: DocumentLocationResolvers = {
       }
 
       return {
-        message: "Forhåndsvisning av side",
+        message: "Page preview",
         locations: [
           {
             title: doc.title,
@@ -64,10 +64,10 @@ export const locations: DocumentLocationResolvers = {
     select: {},
     resolve: () => {
       return {
-        message: "Forhåndsvisning av globale innstillinger",
+        message: "Global settings preview",
         locations: [
           {
-            title: "Forside",
+            title: "Homepage",
             href: "/",
           },
         ],
@@ -80,7 +80,7 @@ export const locations: DocumentLocationResolvers = {
     },
     resolve: (doc) => {
       return {
-        message: "Forhåndsvisning av blogg",
+        message: "Blog preview",
         locations: [
           {
             title: doc?.title,
