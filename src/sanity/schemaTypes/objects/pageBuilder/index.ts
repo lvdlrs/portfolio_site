@@ -18,7 +18,7 @@ export const blocks = [
 
 export const pageBuilder = defineType({
   name: "pageBuilder",
-  title: "Sidebygger",
+  title: "Page Builder",
   type: "object",
   fields: [
     defineField({
@@ -34,7 +34,7 @@ export const pageBuilder = defineType({
         defineArrayMember({
           name: "globalContent",
           type: "object",
-          title: "Globalt Contents",
+          title: "Global Contents",
           icon: EarthAmericasIcon,
           fields: [
             defineField({
@@ -53,8 +53,8 @@ export const pageBuilder = defineType({
             },
             prepare({ title }) {
               return {
-                title: title || "Global blokk",
-                subtitle: title ? "Global blokk" : undefined,
+                title: title || "Global Block",
+                subtitle: title ? "Global Block" : undefined,
               };
             },
           },
