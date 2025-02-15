@@ -38,7 +38,10 @@ export default async function RootLayout({
         className={`${inter.variable} ${alegrey.variable} grid min-h-screen max-w-[100vw] grid-rows-[1fr_auto] overflow-x-clip bg-background antialiased [font-family:var(--font-sans)]`}
       >
         <Header {...(data?.header ?? undefined)} />
-        <main>{children}</main>
+        <main>
+          <div className="fixed h-[200%] w-full -rotate-[15deg] -left-[83%] -top-1/2 bg-black"></div>
+          {children}
+        </main>
         {isDraftMode && (
           <Fragment>
             <VisualEditing />

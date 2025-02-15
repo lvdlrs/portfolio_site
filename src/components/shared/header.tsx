@@ -1,6 +1,5 @@
 "use client";
 import { LayoutQueryResult } from "@/sanity/types";
-import Link from "next/link";
 import { MenuItem } from "./menu-item";
 
 export type HeaderProps = NonNullable<LayoutQueryResult>["header"];
