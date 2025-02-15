@@ -13,7 +13,7 @@ export function Container({
     <div
       className={cn({
         "bg-background": variant === "alternative",
-        "-mt-header pt-header": isHero,
+        "relative": isHero,
       })}
     >
       {children}

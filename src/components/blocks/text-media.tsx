@@ -7,7 +7,6 @@ import { PortableText } from "../portable-text";
 import { LinkButton } from "../shared/link-button";
 import { YouTube } from "../elements/youtube";
 import { ProseContent } from "../prose-content";
-import { Breadcrumbs } from "../elements/breadcrumbs";
 
 type TextMediaProps = Extract<PageBuilderBlock, { _type: "textMedia" }>;
 
@@ -46,11 +45,7 @@ export function TextMedia(
           )}
         >
           <div className="basis-1/2">
-            {props.isHero && (
-              <div className="mb-6">
-                <Breadcrumbs />
-              </div>
-            )}
+
             {props.title && (
               <Heading
                 className={cn(
