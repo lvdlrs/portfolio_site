@@ -16,9 +16,7 @@ export function Header(props: HeaderProps) {
       <nav
         className=""
       >
-        
-        <div className='flex flex-row gap-4 md:flex-col'>
-          <ul>
+          <ul className="flex flex-row gap-4 md:flex-col">
             {props?.headerNavigation?.map((item)=>{
               return(
                 <li key={item._key}>
@@ -27,7 +25,6 @@ export function Header(props: HeaderProps) {
               )
             })}
           </ul>
-        </div>
       </nav>
     </header>
   );
