@@ -16,6 +16,7 @@ export function TextMedia(
   },
 ) {
   const isMediaLeft = props.mediaPlacement === "left";
+  const isThreeFourth = props.mediaSize === "threefourth";
   const media = props.media;
   const isVideoMedia = media?._type === "video";
   const showMedia = Boolean(
@@ -44,7 +45,9 @@ export function TextMedia(
             },
           )}
         >
-          <div className="basis-1/2">
+          <div className={cn("basis-1/2",{
+            "basis-3/5": isThreeFourth
+          })}>
 
             {props.title && (
               <Heading
@@ -83,7 +86,9 @@ export function TextMedia(
               </div>
             )}
           </div>
-          <div className="basis-1/2">
+          <div className={cn("basis-1/2",{
+            "basis-2/5": isThreeFourth
+          })}>
             {isVideoMedia && (
               <YouTube
                 id={media.videoUrl ?? ""}
