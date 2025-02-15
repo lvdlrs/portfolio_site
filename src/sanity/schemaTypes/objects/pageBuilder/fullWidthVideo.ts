@@ -3,13 +3,13 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const fullWidthVideo = defineType({
   name: "fullWidthVideo",
-  title: "Fullbredde video",
+  title: "Fullwidth video",
   type: "object",
   icon: BlockElementIcon,
   fields: [
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
     }),
     defineField({
@@ -19,7 +19,7 @@ export const fullWidthVideo = defineType({
     }),
     defineField({
       name: "links",
-      title: "Lenker",
+      title: "Links",
       type: "array",
       of: [
         defineArrayMember({
@@ -40,8 +40,8 @@ export const fullWidthVideo = defineType({
     },
     prepare({ media, title }) {
       return {
-        title: title || "Full bredde video",
-        subtitle: title ? "Full bredde video" : undefined,
+        title: title || "Fullwidth Video",
+        subtitle: title ? "Fullwidth Video" : undefined,
         media,
       };
     },

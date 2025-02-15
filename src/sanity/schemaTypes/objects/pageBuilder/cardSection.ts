@@ -4,7 +4,7 @@ import { mediaPreview } from "sanity-plugin-icon-manager";
 
 export const cardSection = defineType({
   name: "cardSection",
-  title: "Kortseksjon",
+  title: "Card Section",
   type: "object",
   icon: BlockElementIcon,
   groups: [
@@ -14,26 +14,26 @@ export const cardSection = defineType({
       default: true,
     },
     {
-      title: "Stiler",
+      title: "Style",
       name: "styles",
     },
   ],
   fields: [
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
       group: "content",
     }),
     defineField({
       name: "content",
-      title: "Beskrivelse",
+      title: "Description",
       type: "simpleRichText",
       group: "content",
     }),
     defineField({
       name: "links",
-      title: "Lenker",
+      title: "Links",
       type: "array",
       of: [
         defineArrayMember({
@@ -55,16 +55,16 @@ export const cardSection = defineType({
             defineField({
               name: "icon",
               type: "icon.manager",
-              title: "Ikon",
+              title: "Icon",
             }),
             defineField({
               name: "title",
-              title: "Tittel",
+              title: "Title",
               type: "string",
             }),
             defineField({
               name: "content",
-              title: "Beskrivelse",
+              title: "Description",
               type: "simpleRichText",
             }),
           ],
@@ -75,8 +75,8 @@ export const cardSection = defineType({
             },
             prepare({ title, media }) {
               return {
-                title: title || "Kort",
-                subtitle: title ? "Kort" : undefined,
+                title: title || "Map",
+                subtitle: title ? "Map" : undefined,
                 media: mediaPreview(media),
               };
             },
@@ -87,16 +87,16 @@ export const cardSection = defineType({
     }),
     defineField({
       name: "variant",
-      title: "Seksjonvariant",
+      title: "Variant",
       type: "string",
       options: {
         list: [
           { title: "Standard", value: "default" },
-          { title: "Alternativ", value: "alternative" },
+          { title: "Alternative", value: "alternative" },
         ],
       },
       initialValue: "default",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("The field is required"),
         group: "styles",
     }),
   ],
@@ -106,8 +106,8 @@ export const cardSection = defineType({
     },
     prepare({ title }) {
       return {
-        title: title || "Kortseksjon",
-        subtitle: title ? "Kortseksjon" : undefined,
+        title: title || "Card Section",
+        subtitle: title ? "Card Section" : undefined,
       };
     },
   },

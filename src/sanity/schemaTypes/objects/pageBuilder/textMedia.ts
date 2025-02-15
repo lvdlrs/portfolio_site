@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity";
 
 export const textMedia = defineType({
   name: "textMedia",
-  title: "Tekst og media",
+  title: "Image with text",
   type: "object",
   icon: BlockElementIcon,
   groups: [
@@ -18,13 +18,13 @@ export const textMedia = defineType({
     },
     {
       name: "styles",
-      title: "Stiler",
+      title: "Styles",
     },
   ],
   fields: [
     defineField({
       name: "mediaType",
-      title: "Mediatype",
+      title: "Media Type",
       type: "string",
       options: {
         list: [
@@ -55,7 +55,7 @@ export const textMedia = defineType({
     }),
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
       group: "content",
     }),
@@ -67,14 +67,14 @@ export const textMedia = defineType({
     }),
     defineField({
       name: "links",
-      title: "Lenker",
+      title: "Links",
       type: "array",
       of: [{ type: "link" }],
       group: "content",
     }),
     defineField({
       name: "mediaPlacement",
-      title: "Plassering av media",
+      title: "Image position",
       type: "string",
       options: {
         list: [
@@ -88,12 +88,12 @@ export const textMedia = defineType({
     }),
     defineField({
       name: "variant",
-      title: "Seksjonvariant",
+      title: "Section Style",
       type: "string",
       options: {
         list: [
           { title: "Standard", value: "default" },
-          { title: "Alternativ", value: "alternative" },
+          { title: "Alternative", value: "alternative" },
         ],
       },
       initialValue: "default",
@@ -102,12 +102,12 @@ export const textMedia = defineType({
     }),
     defineField({
       name: "layout",
-      title: "Utseende",
+      title: "Layout",
       type: "string",
       options: {
         list: [
           { title: "Standard", value: "default" },
-          { title: "Full skjerm", value: "fullscreen" },
+          { title: "Full Screen", value: "fullscreen" },
         ],
       },
       initialValue: "default",
@@ -122,8 +122,8 @@ export const textMedia = defineType({
     },
     prepare({ title, media }) {
       return {
-        title: title || "Tekst og media",
-        subtitle: title ? "Tekst og media" : undefined,
+        title: title || "Image with text",
+        subtitle: title ? "Image with text" : undefined,
         media,
       };
     },

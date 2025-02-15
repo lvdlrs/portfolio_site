@@ -3,7 +3,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const accordionSection = defineType({
   name: "accordionSection",
-  title: "Nedtrekk seksjon",
+  title: "Accordion",
   type: "object",
   icon: BlockElementIcon,
   groups: [
@@ -13,14 +13,14 @@ export const accordionSection = defineType({
       default: true,
     },
     {
-      title: "Stiler",
+      title: "Styles",
       name: "styles",
     },
   ],
   fields: [
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
       group: "content",
     }),
@@ -32,7 +32,7 @@ export const accordionSection = defineType({
     }),
     defineField({
       name: "links",
-      title: "Lenker",
+      title: "Links",
       type: "array",
       of: [
         defineArrayMember({
@@ -43,7 +43,7 @@ export const accordionSection = defineType({
     }),
     defineField({
       name: "items",
-      title: "NedtrekkContents",
+      title: "Accordion Items",
       type: "array",
       of: [
         defineArrayMember({
@@ -53,13 +53,13 @@ export const accordionSection = defineType({
           fields: [
             defineField({
               name: "title",
-              title: "Tittel",
+              title: "Title",
               type: "string",
               validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
             }),
             defineField({
               name: "content",
-              title: "Beskrivelse",
+              title: "Description",
               type: "simpleRichText",
               validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
             }),
@@ -70,16 +70,16 @@ export const accordionSection = defineType({
     }),
     defineField({
       name: "layout",
-      title: "Utseende",
+      title: "Layout",
       type: "string",
       options: {
         list: [
-          { title: "Full bredde", value: "default" },
-          { title: "Sentrert", value: "centered " },
+          { title: "Full width", value: "default" },
+          { title: "Centered", value: "centered " },
         ],
       },
       initialValue: "default",
-      validation: (Rule) => Rule.required().error("Feltet er påkrevd"),
+      validation: (Rule) => Rule.required().error("The field is required"),
       group: "styles",
     }),
   ],
@@ -89,8 +89,8 @@ export const accordionSection = defineType({
     },
     prepare({ title }) {
       return {
-        title: title || "Nedtrekk seksjon",
-        subtitle: title ? "Nedtrekk seksjon" : undefined,
+        title: title || "Accordion",
+        subtitle: title ? "Accordion" : undefined,
       };
     },
   },

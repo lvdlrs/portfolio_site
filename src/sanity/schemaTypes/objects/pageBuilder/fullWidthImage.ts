@@ -3,13 +3,13 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const fullWidthImage = defineType({
   name: "fullWidthImage",
-  title: "Fullbredde bilde",
+  title: "Fullwidth Image",
   type: "object",
   icon: BlockElementIcon,
   fields: [
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
     }),
     defineField({
@@ -19,7 +19,7 @@ export const fullWidthImage = defineType({
     }),
     defineField({
       name: "links",
-      title: "Lenker",
+      title: "Links",
       type: "array",
       of: [
         defineArrayMember({
@@ -29,7 +29,7 @@ export const fullWidthImage = defineType({
     }),
     defineField({
       name: "image",
-      title: "Bilde",
+      title: "Image",
       type: "image",
       options: {
         hotspot: true,
@@ -44,8 +44,8 @@ export const fullWidthImage = defineType({
     },
     prepare({ media, title }) {
       return {
-        title: title || "Fullbredde bilde",
-        subtitle: title ? "Fullbredde bilde" : undefined,
+        title: title || "Fullwidth Image",
+        subtitle: title ? "Fullwidth Image" : undefined,
         media,
       };
     },

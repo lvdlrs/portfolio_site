@@ -3,17 +3,17 @@ import { defineField, defineType } from "sanity";
 
 export const textContent = defineType({
   name: "textContent",
-  title: "Tekst",
+  title: "Text",
   type: "object",
   icon: BlockElementIcon,
   groups: [
     { title: "Contents", name: "content", default: true },
-    { title: "Stiler", name: "styles" },
+    { title: "Styles", name: "styles" },
   ],
   fields: [
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
       group: "content",
     }),
@@ -25,14 +25,14 @@ export const textContent = defineType({
     }),
     defineField({
       name: "links",
-      title: "Lenker",
+      title: "Links",
       type: "array",
       of: [{ type: "link" }],
       group: "content",
     }),
     defineField({
       name: "alignment",
-      title: "Justering",
+      title: "Alignment",
       type: "string",
       options: {
         list: [
@@ -52,7 +52,7 @@ export const textContent = defineType({
       options: {
         list: [
           { title: "Standard", value: "default" },
-          { title: "Alternativ", value: "alternative" },
+          { title: "Alternative", value: "alternative" },
         ],
       },
       initialValue: "default",
@@ -61,7 +61,7 @@ export const textContent = defineType({
     }),
     defineField({
       name: "layout",
-      title: "Utseende",
+      title: "Layout",
       type: "string",
       options: {
         list: [
@@ -80,8 +80,8 @@ export const textContent = defineType({
     },
     prepare({ title }) {
       return {
-        title: title || "Tekst",
-        subtitle: title ? "Tekst" : undefined,
+        title: title || "Text",
+        subtitle: title ? "Text" : undefined,
       };
     },
   },
