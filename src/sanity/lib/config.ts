@@ -50,7 +50,7 @@ export const config = defineConfig({
       ? visionTool({ defaultApiVersion: apiVersion })
       : { name: "vision-disabled" },
     IconManager({
-      availableCollections: ["material-symbols"],
+      availableCollections: ["material-symbols","material-symbols-light", "lucide"],
       defaults: {
         inlineSvg: true,
         size: { width: 30, height: 30 },
