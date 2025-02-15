@@ -11,7 +11,7 @@ export function Container({
 }) {
   return (
     <div
-      className={cn("px-3", {
+      className={cn({
         "bg-background": variant === "alternative",
         "-mt-header pt-header": isHero,
       })}
