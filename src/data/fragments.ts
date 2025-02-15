@@ -121,6 +121,7 @@ export const PAGE_BUILDER_BLOCKS = `
 _type == "textMedia" => {
   title,
   mediaPlacement,
+  mediaSize,
   layout,
   variant,
   "media": select(

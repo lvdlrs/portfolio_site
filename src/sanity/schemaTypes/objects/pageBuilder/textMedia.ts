@@ -78,11 +78,25 @@ export const textMedia = defineType({
       type: "string",
       options: {
         list: [
-          { title: "Venstre", value: "left" },
-          { title: "Høyre", value: "right" },
+          { title: "Left", value: "left" },
+          { title: "Right", value: "right" },
         ],
       },
       initialValue: "left",
+      validation: (Rule) => Rule.required().error("This field is required"),
+      group: "styles",
+    }),
+    defineField({
+      name: "mediaSize",
+      title: "Image size",
+      type: "string",
+      options: {
+        list: [
+          { title: "Small", value: "threefourth" },
+          { title: "Default", value: "default" },
+        ],
+      },
+      initialValue: "default",
       validation: (Rule) => Rule.required().error("This field is required"),
       group: "styles",
     }),
