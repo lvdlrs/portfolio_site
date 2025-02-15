@@ -5,7 +5,7 @@ export function MenuItem(props: { label: string; href: string, icon: any }) {
   
   const pathname = usePathname();
 
-  const isActive = pathname === props.href || pathname == '/';
+  const isActive = pathname === props.href;
 
   return (
       <Link href={props.href} className={`group/linkicon relative size-[50px] block rounded-[50%] duration-300 ${isActive ? "bg-black text-white hover:bg-black hover:text-white" : "bg-grey hover:bg-black hover:text-white"}`}>
