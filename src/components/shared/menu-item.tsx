@@ -1,7 +1,8 @@
+import { IconManager } from "@/sanity/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function MenuItem(props: { label: string; href: string, icon: any }) {
+export function MenuItem(props: { label: string; href: string, icon: IconManager }) {
   
   const pathname = usePathname();
 
