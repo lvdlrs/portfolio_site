@@ -16,7 +16,7 @@ export const seo = defineType({
   fields: [
     defineField({
       name: "image",
-      title: "Bilde",
+      title: "Image",
       type: "image",
       options: {
         hotspot: true,
@@ -24,12 +24,12 @@ export const seo = defineType({
     }),
     defineField({
       name: "title",
-      title: "Tittel",
+      title: "Title",
       type: "string",
     }),
     defineField({
       name: "description",
-      title: "Beskrivelse",
+      title: "Description",
       type: "text",
     }),
     defineField({
@@ -56,7 +56,7 @@ export const seo = defineType({
     }),
     defineField({
       name: "canonical",
-      title: "Kanonisk URL",
+      title: "Canonical URL",
       type: "string",
       description:
         "Ved å angi en kanonisk URL, kan du fortelle søkemotorer hvilken URL som er den primære for denne siden. Vil automatisk bruke siden sin URL om feltet er tomt.",

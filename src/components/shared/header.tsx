@@ -1,20 +1,8 @@
 "use client";
-
-import { urlFor } from "@/sanity/lib/image";
 import { LayoutQueryResult } from "@/sanity/types";
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon, DockItem, DockLabel } from "../ui/dock";
-import {
-  Activity,
-  Component,
-  HomeIcon,
-  Mail,
-  Package,
-  ScrollText,
-  SunMoon,
-} from 'lucide-react';
 
 export type HeaderProps = NonNullable<LayoutQueryResult>["header"];
 
@@ -30,11 +18,20 @@ export function Header(props: HeaderProps) {
           {props?.headerNavigation?.map((item) => (
             <DockItem
               key={item._key}
-              className='aspect-square rounded-full bg-white-dark dark:bg-black'
+              className='aspect-square rounded-full bg-white-dark dark:bg-black relative'
             >
+              <Link href={item.href} className="absolute top-0 left-0 w-full h-full block"></Link>
               <DockLabel>{item.label}</DockLabel>
-              {item.label == 'Home' ? <DockIcon><HomeIcon className='h-full w-full text-primary dark:text-white' /></DockIcon> : ""}
-              
+              {item.icon?.metadata?.inlineSvg && (
+                <DockIcon>
+                  <div
+                    className="block"
+                    dangerouslySetInnerHTML={{
+                      __html: item.icon.metadata.inlineSvg,
+                    }}
+                  />
+                </DockIcon>
+                )}              
             </DockItem>
           ))}
         </Dock>
