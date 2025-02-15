@@ -34,6 +34,15 @@ const config: Config = {
         medium: "hsl(var(--black-medium))"
       },
     },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "0.75rem",
+        sm: "0.75rem",
+        lg: "1rem",
+        xl: "1.5rem",
+      },
+    },
     extend: {
       maxWidth: {
         DEFAULT: "var(--container)",
