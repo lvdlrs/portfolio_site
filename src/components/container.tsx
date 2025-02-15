@@ -11,7 +11,7 @@ export function Container({
 }) {
   return (
     <div
-      className={cn({
+      className={cn("container",{
         "bg-background": variant === "alternative",
         "relative": isHero,
       })}

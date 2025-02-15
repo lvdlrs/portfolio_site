@@ -10,6 +10,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import { SanityLive } from "@/sanity/lib/live";
 import { Fragment } from "react";
 import { DisableDraftMode } from "@/components/misc/disable-preview-mode";
+import { BackDrop } from "@/components/shared/backDrop";
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +40,7 @@ export default async function RootLayout({
       >
         <Header {...(data?.header ?? undefined)} />
         <main>
-          <div className="fixed h-[200%] w-full -rotate-[15deg] -left-[83%] -top-1/2 bg-black"></div>
+          <BackDrop />
           {children}
         </main>
         {isDraftMode && (

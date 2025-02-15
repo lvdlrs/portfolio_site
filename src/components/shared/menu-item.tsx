@@ -17,7 +17,7 @@ export function MenuItem(props: { label: string; href: string, icon: any }) {
           }}
         />
       )}
-      {props.label ? <span className="absolute top-0 right-0 text-center -z-[1] opacity-0 uppercase rounded-tl-[30px] rounded-bl-[30px] transition-all duration-300 block h-[50px] px-6 leading-[50px] group-hover/linkicon:right-[28px] group-hover/linkicon:bg-black group-hover/linkicon:opacity-100">{props.label}</span>: ""}
+      {props.label ? <span className="absolute top-0 right-0 text-center -z-[1] opacity-0 uppercase rounded-tl-[30px] rounded-bl-[30px] transition-all duration-300 block h-[50px] px-6 leading-[50px] md:group-hover/linkicon:right-[28px] md:group-hover/linkicon:bg-black md:group-hover/linkicon:opacity-100">{props.label}</span>: ""}
       </Link>
   );
 }
