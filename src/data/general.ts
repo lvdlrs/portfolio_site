@@ -2,7 +2,7 @@ import { sanity } from "@/sanity/lib/fetch";
 import { defineQuery } from "next-sanity";
 import {
   IMAGE_FRAGMENT,
-  LINK_FRAGMENT,
+  ICON_LINK_FRAGMENT,
   SEO_FRAGMENT,
   SIMPLE_RICH_TEXT_FRAGMENT,
 } from "./fragments";
@@ -18,7 +18,7 @@ export async function getLayoutData() {
           },
           headerNavigation[]{
             _key,
-            ${LINK_FRAGMENT}
+            ${ICON_LINK_FRAGMENT}
           }
         }
       }`,

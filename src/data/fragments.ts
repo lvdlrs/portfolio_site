@@ -40,6 +40,26 @@ label,
 )
 `;
 
+export const ICON_LINK_FRAGMENT = `
+icon {
+  ${ICON_FRAGMENT}
+},
+label,
+"href": select(
+  linkType == "internal" => coalesce(
+    select(
+      internalLink->_type == "archivePage" => internalLink->_id, 
+      internalLink->_type != "archivePage" => internalLink->slug.current,
+      "#"
+    ), 
+    "#"
+  ),
+  linkType == "external" => coalesce(
+    externalLink.url, "#"
+  )
+)
+`;
+
 export const SEO_FRAGMENT = `
 "title": coalesce(seo.title, title),
 "description": seo.description,

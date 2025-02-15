@@ -49,7 +49,7 @@ export const siteSettings = defineType({
         defineField({
           name: "menuItem",
           title: "Menu Item",
-          type: "link",
+          type: "headerlink",
         }),
       ],
       group: "content",

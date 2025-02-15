@@ -180,6 +180,39 @@ export type TextMedia = {
   layout: "default" | "fullscreen";
 };
 
+export type Headerlink = {
+  _type: "headerlink";
+  icon?: IconManager;
+  label: string;
+  linkType: "internal" | "external";
+  internalLink?:
+    | {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "page";
+      }
+    | {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "post";
+      }
+    | {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "frontPage";
+      }
+    | {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "archivePage";
+      };
+  externalLink?: ExternalLink;
+};
+
 export type Link = {
   _type: "link";
   label: string;
@@ -274,145 +307,6 @@ export type InternalLink = {
       };
 };
 
-export type Drug = {
-  _id: string;
-  _type: "drug";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  slug?: Slug;
-  similar?: Array<string>;
-  productNames?: Array<string>;
-  categories: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "drugCategory";
-  }>;
-  treatments: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "therapy";
-  }>;
-  comments?: Array<{
-    combinations?: Array<{
-      gene: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "gene";
-      };
-      result: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "result";
-      };
-      _type: "combination";
-      _key: string;
-    }>;
-    comment?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    severity?: "standard" | "low" | "medium" | "high";
-    _type: "comment";
-    _key: string;
-  }>;
-};
-
-export type Therapy = {
-  _id: string;
-  _type: "therapy";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name: string;
-  slug: Slug;
-};
-
-export type DrugCategory = {
-  _id: string;
-  _type: "drugCategory";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name: string;
-  slug: Slug;
-};
-
-export type Allele = {
-  _id: string;
-  _type: "allele";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name: string;
-  id: Slug;
-};
-
-export type Gene = {
-  _id: string;
-  _type: "gene";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name: string;
-  id: Slug;
-  isDuplicate?: boolean;
-  alleles: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "allele";
-  }>;
-  phenotypes?: Array<{
-    alleles: Array<{
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      _key: string;
-      [internalGroqTypeReferenceTo]?: "allele";
-    }>;
-    result: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "result";
-    };
-    _type: "phenotype";
-    _key: string;
-  }>;
-};
-
-export type Result = {
-  _id: string;
-  _type: "result";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  result: string;
-};
-
 export type Tag = {
   _id: string;
   _type: "tag";
@@ -497,12 +391,7 @@ export type SiteSettings = {
   headerNavigation?: Array<
     {
       _key: string;
-    } & Link
-  >;
-  footerNavigation?: Array<
-    {
-      _key: string;
-    } & Link
+    } & Headerlink
   >;
   googleTagManagerId?: string;
   seo?: Seo;
@@ -819,17 +708,12 @@ export type AllSanitySchemaTypes =
   | FullWidthVideo
   | TextContent
   | TextMedia
+  | Headerlink
   | Link
   | Accordion
   | Video
   | ExternalLink
   | InternalLink
-  | Drug
-  | Therapy
-  | DrugCategory
-  | Allele
-  | Gene
-  | Result
   | Tag
   | ArchivePage
   | FrontPage
@@ -855,59 +739,9 @@ export type AllSanitySchemaTypes =
   | IconManagerColor
   | IconManagerColorRgba;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/data/drug.ts
-// Variable: categoryDrugs
-// Query: *[_type == "therapy"] | order(name asc) {      name,      _id,      "drugs": *[_type == "drug" && references(^._id)] {        name,        _id,        slug,        productNames      }    }
-export type CategoryDrugsResult = Array<{
-  name: string;
-  _id: string;
-  drugs: Array<{
-    name: string | null;
-    _id: string;
-    slug: Slug | null;
-    productNames: Array<string> | null;
-  }>;
-}>;
-// Variable: possibleDrugPhenotypes
-// Query: {      "drugs": *[_type == "drug" && slug.current in $drugs]|order(name asc) {        _id,        name,        slug,      },      "genes": *[_type == "gene" && _id in array::unique(*[_type == 'drug' && slug.current in $drugs].comments[].combinations[].gene._ref)]|order(name asc) {        name,        id,        isDuplicate,        alleles[]-> {          name,          id        },        phenotypes[]{          _key,          alleles[]-> {            name,            id          },          result->{            _id,            result          }        }      }    }
-export type PossibleDrugPhenotypesResult = {
-  drugs: Array<{
-    _id: string;
-    name: string | null;
-    slug: Slug | null;
-  }>;
-  genes: Array<{
-    name: string;
-    id: Slug;
-    isDuplicate: boolean | null;
-    alleles: Array<{
-      name: string;
-      id: Slug;
-    }>;
-    phenotypes: Array<{
-      _key: string;
-      alleles: Array<{
-        name: string;
-        id: Slug;
-      }>;
-      result: {
-        _id: string;
-        result: string;
-      };
-    }> | null;
-  }>;
-};
-// Variable: drugComments
-// Query: *[_type == "drug" ] {      _id,      name,      slug,    }
-export type DrugCommentsResult = Array<{
-  _id: string;
-  name: string | null;
-  slug: Slug | null;
-}>;
-
 // Source: ./src/data/general.ts
 // Variable: layoutQuery
-// Query: *[_type == "siteSettings"][0]{      googleTagManagerId,      "header": {          title,          logo {            asset,"metadata": asset->metadata.dimensions,hotspot,crop,alt,caption          },          headerNavigation[]{            _key,            label,"href": select(  linkType == "internal" => coalesce(    select(      internalLink->_type == "archivePage" => internalLink->_id,       internalLink->_type != "archivePage" => internalLink->slug.current,      "#"    ),     "#"  ),  linkType == "external" => coalesce(    externalLink.url, "#"  ))          }        },        "footer": {          title,          logo {            asset,"metadata": asset->metadata.dimensions,hotspot,crop,alt,caption          },          description {            text[]{              ...,markDefs[]{  ...,  _type == "internalLink" => {    "slug": @.reference->slug.current  },  _type == "externalLink" => {    url  }},            }          },          footerNavigation[]{            _key,            label,"href": select(  linkType == "internal" => coalesce(    select(      internalLink->_type == "archivePage" => internalLink->_id,       internalLink->_type != "archivePage" => internalLink->slug.current,      "#"    ),     "#"  ),  linkType == "external" => coalesce(    externalLink.url, "#"  ))          }        }      }
+// Query: *[_type == "siteSettings"][0]{      googleTagManagerId,      "header": {          title,          logo {            asset,"metadata": asset->metadata.dimensions,hotspot,crop,alt,caption          },          headerNavigation[]{            _key,            icon {  metadata {  inlineSvg,  size,  color}},label,"href": select(  linkType == "internal" => coalesce(    select(      internalLink->_type == "archivePage" => internalLink->_id,       internalLink->_type != "archivePage" => internalLink->slug.current,      "#"    ),     "#"  ),  linkType == "external" => coalesce(    externalLink.url, "#"  ))          }        }      }
 export type LayoutQueryResult = {
   googleTagManagerId: string | null;
   header: {
@@ -927,81 +761,15 @@ export type LayoutQueryResult = {
     } | null;
     headerNavigation: Array<{
       _key: string;
-      label: string;
-      href: string | null | "#";
-    }> | null;
-  };
-  footer: {
-    title: string;
-    logo: {
-      asset: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      icon: {
+        metadata: {
+          inlineSvg: string | null;
+          size: IconManagerSize | null;
+          color: IconManagerColor | null;
+        } | null;
       } | null;
-      metadata: SanityImageDimensions | null;
-      hotspot: SanityImageHotspot | null;
-      crop: SanityImageCrop | null;
-      alt: null;
-      caption: null;
-    } | null;
-    description: {
-      text: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "normal";
-        listItem?: "bullet" | "number";
-        markDefs: Array<
-          | {
-              _key: string;
-              _type: "externalLink";
-              url: string;
-            }
-          | {
-              _key: string;
-              _type: "internalLink";
-              reference?:
-                | {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "archivePage";
-                  }
-                | {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "frontPage";
-                  }
-                | {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "page";
-                  }
-                | {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "post";
-                  };
-              slug: string | null;
-            }
-        > | null;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }> | null;
-    } | null;
-    footerNavigation: Array<{
-      _key: string;
       label: string;
-      href: string | null | "#";
+      href: string | "#";
     }> | null;
   };
 } | null;
@@ -1009,7 +777,7 @@ export type LayoutQueryResult = {
 // Query: *[_type == $type && slug.current == $slug][0]{      "title": coalesce(seo.title, title),"description": seo.description,"featuredImage": coalesce(seo.featuredImage, mainImage),"index": seo.index,"follow": seo.follow,"canonical": seo.canonical,    }
 export type ContentMetaQueryResult =
   | {
-      title: null;
+      title: string;
       description: null;
       featuredImage: null;
       index: null;
@@ -1017,7 +785,7 @@ export type ContentMetaQueryResult =
       canonical: null;
     }
   | {
-      title: null | string;
+      title: string | null;
       description: null;
       featuredImage: null;
       index: null;
@@ -1304,7 +1072,7 @@ export type PageQueryResult = {
               links: Array<{
                 _key: string;
                 label: string;
-                href: string | null | "#";
+                href: string | "#";
               }> | null;
               items: Array<{
                 _key: string;
@@ -1423,7 +1191,7 @@ export type PageQueryResult = {
               links: Array<{
                 _key: string;
                 label: string;
-                href: string | null | "#";
+                href: string | "#";
               }> | null;
               cards: Array<{
                 _key: string;
@@ -1548,7 +1316,7 @@ export type PageQueryResult = {
               links: Array<{
                 _key: string;
                 label: string;
-                href: string | null | "#";
+                href: string | "#";
               }> | null;
               image: {
                 asset: {
@@ -1623,7 +1391,7 @@ export type PageQueryResult = {
               links: Array<{
                 _key: string;
                 label: string;
-                href: string | null | "#";
+                href: string | "#";
               }> | null;
               video: {
                 title: string | null;
@@ -1707,7 +1475,7 @@ export type PageQueryResult = {
                     links: Array<{
                       _key: string;
                       label: string;
-                      href: string | null | "#";
+                      href: string | "#";
                     }> | null;
                     items: Array<{
                       _key: string;
@@ -1826,7 +1594,7 @@ export type PageQueryResult = {
                     links: Array<{
                       _key: string;
                       label: string;
-                      href: string | null | "#";
+                      href: string | "#";
                     }> | null;
                     cards: Array<{
                       _key: string;
@@ -1951,7 +1719,7 @@ export type PageQueryResult = {
                     links: Array<{
                       _key: string;
                       label: string;
-                      href: string | null | "#";
+                      href: string | "#";
                     }> | null;
                     image: {
                       asset: {
@@ -2026,7 +1794,7 @@ export type PageQueryResult = {
                     links: Array<{
                       _key: string;
                       label: string;
-                      href: string | null | "#";
+                      href: string | "#";
                     }> | null;
                     video: {
                       title: string | null;
@@ -2108,7 +1876,7 @@ export type PageQueryResult = {
                     links: Array<{
                       _key: string;
                       label: string;
-                      href: string | null | "#";
+                      href: string | "#";
                     }> | null;
                   }
                 | {
@@ -2207,7 +1975,7 @@ export type PageQueryResult = {
                     links: Array<{
                       _key: string;
                       label: string;
-                      href: string | null | "#";
+                      href: string | "#";
                     }> | null;
                   }
                 | null;
@@ -2274,7 +2042,7 @@ export type PageQueryResult = {
               links: Array<{
                 _key: string;
                 label: string;
-                href: string | null | "#";
+                href: string | "#";
               }> | null;
             }
           | {
@@ -2373,7 +2141,7 @@ export type PageQueryResult = {
               links: Array<{
                 _key: string;
                 label: string;
-                href: string | null | "#";
+                href: string | "#";
               }> | null;
             }
         > | null;
@@ -2448,7 +2216,7 @@ export type HomePageQueryResult = {
           links: Array<{
             _key: string;
             label: string;
-            href: string | null | "#";
+            href: string | "#";
           }> | null;
           items: Array<{
             _key: string;
@@ -2567,7 +2335,7 @@ export type HomePageQueryResult = {
           links: Array<{
             _key: string;
             label: string;
-            href: string | null | "#";
+            href: string | "#";
           }> | null;
           cards: Array<{
             _key: string;
@@ -2692,7 +2460,7 @@ export type HomePageQueryResult = {
           links: Array<{
             _key: string;
             label: string;
-            href: string | null | "#";
+            href: string | "#";
           }> | null;
           image: {
             asset: {
@@ -2767,7 +2535,7 @@ export type HomePageQueryResult = {
           links: Array<{
             _key: string;
             label: string;
-            href: string | null | "#";
+            href: string | "#";
           }> | null;
           video: {
             title: string | null;
@@ -2851,7 +2619,7 @@ export type HomePageQueryResult = {
                 links: Array<{
                   _key: string;
                   label: string;
-                  href: string | null | "#";
+                  href: string | "#";
                 }> | null;
                 items: Array<{
                   _key: string;
@@ -2970,7 +2738,7 @@ export type HomePageQueryResult = {
                 links: Array<{
                   _key: string;
                   label: string;
-                  href: string | null | "#";
+                  href: string | "#";
                 }> | null;
                 cards: Array<{
                   _key: string;
@@ -3095,7 +2863,7 @@ export type HomePageQueryResult = {
                 links: Array<{
                   _key: string;
                   label: string;
-                  href: string | null | "#";
+                  href: string | "#";
                 }> | null;
                 image: {
                   asset: {
@@ -3170,7 +2938,7 @@ export type HomePageQueryResult = {
                 links: Array<{
                   _key: string;
                   label: string;
-                  href: string | null | "#";
+                  href: string | "#";
                 }> | null;
                 video: {
                   title: string | null;
@@ -3252,7 +3020,7 @@ export type HomePageQueryResult = {
                 links: Array<{
                   _key: string;
                   label: string;
-                  href: string | null | "#";
+                  href: string | "#";
                 }> | null;
               }
             | {
@@ -3351,7 +3119,7 @@ export type HomePageQueryResult = {
                 links: Array<{
                   _key: string;
                   label: string;
-                  href: string | null | "#";
+                  href: string | "#";
                 }> | null;
               }
             | null;
@@ -3418,7 +3186,7 @@ export type HomePageQueryResult = {
           links: Array<{
             _key: string;
             label: string;
-            href: string | null | "#";
+            href: string | "#";
           }> | null;
         }
       | {
@@ -3517,7 +3285,7 @@ export type HomePageQueryResult = {
           links: Array<{
             _key: string;
             label: string;
-            href: string | null | "#";
+            href: string | "#";
           }> | null;
         }
     > | null;
@@ -3781,13 +3549,10 @@ export type ArchiveDataResult = {
 } | null;
 
 // Query TypeMap
-import "next-sanity";
-declare module "next-sanity" {
+import "@sanity/client";
+declare module "@sanity/client" {
   interface SanityQueries {
-    '\n    *[_type == "therapy"] | order(name asc) {\n      name,\n      _id,\n      "drugs": *[_type == "drug" && references(^._id)] {\n        name,\n        _id,\n        slug,\n        productNames\n      }\n    }\n  ': CategoryDrugsResult;
-    '\n    {\n      "drugs": *[_type == "drug" && slug.current in $drugs]|order(name asc) {\n        _id,\n        name,\n        slug,\n      },\n      "genes": *[_type == "gene" && _id in array::unique(*[_type == \'drug\' && slug.current in $drugs].comments[].combinations[].gene._ref)]|order(name asc) {\n        name,\n        id,\n        isDuplicate,\n        alleles[]-> {\n          name,\n          id\n        },\n        phenotypes[]{\n          _key,\n          alleles[]-> {\n            name,\n            id\n          },\n          result->{\n            _id,\n            result\n          }\n        }\n      }\n    }\n  ': PossibleDrugPhenotypesResult;
-    '\n    *[_type == "drug" ] {\n      _id,\n      name,\n      slug,\n    }\n  ': DrugCommentsResult;
-    '*[_type == "siteSettings"][0]{\n      googleTagManagerId,\n      "header": {\n          title,\n          logo {\n            \nasset,\n"metadata": asset->metadata.dimensions,\nhotspot,\ncrop,\nalt,\ncaption\n\n          },\n          headerNavigation[]{\n            _key,\n            \nlabel,\n"href": select(\n  linkType == "internal" => coalesce(\n    select(\n      internalLink->_type == "archivePage" => internalLink->_id, \n      internalLink->_type != "archivePage" => internalLink->slug.current,\n      "#"\n    ), \n    "#"\n  ),\n  linkType == "external" => coalesce(\n    externalLink.url, "#"\n  )\n)\n\n          }\n        },\n        "footer": {\n          title,\n          logo {\n            \nasset,\n"metadata": asset->metadata.dimensions,\nhotspot,\ncrop,\nalt,\ncaption\n\n          },\n          description\xA0{\n            text[]{\n              \n...,\nmarkDefs[]{\n  ...,\n  _type == "internalLink" => {\n    "slug": @.reference->slug.current\n  },\n  _type == "externalLink" => {\n    url\n  }\n},\n\n            }\n          },\n          footerNavigation[]{\n            _key,\n            \nlabel,\n"href": select(\n  linkType == "internal" => coalesce(\n    select(\n      internalLink->_type == "archivePage" => internalLink->_id, \n      internalLink->_type != "archivePage" => internalLink->slug.current,\n      "#"\n    ), \n    "#"\n  ),\n  linkType == "external" => coalesce(\n    externalLink.url, "#"\n  )\n)\n\n          }\n        }\n      }': LayoutQueryResult;
+    '*[_type == "siteSettings"][0]{\n      googleTagManagerId,\n      "header": {\n          title,\n          logo {\n            \nasset,\n"metadata": asset->metadata.dimensions,\nhotspot,\ncrop,\nalt,\ncaption\n\n          },\n          headerNavigation[]{\n            _key,\n            \nicon {\n  \nmetadata {\n  inlineSvg,\n  size,\n  color\n}\n\n},\nlabel,\n"href": select(\n  linkType == "internal" => coalesce(\n    select(\n      internalLink->_type == "archivePage" => internalLink->_id, \n      internalLink->_type != "archivePage" => internalLink->slug.current,\n      "#"\n    ), \n    "#"\n  ),\n  linkType == "external" => coalesce(\n    externalLink.url, "#"\n  )\n)\n\n          }\n        }\n      }': LayoutQueryResult;
     '*[_type == $type && slug.current == $slug][0]{\n      \n"title": coalesce(seo.title, title),\n"description": seo.description,\n"featuredImage": coalesce(seo.featuredImage, mainImage),\n"index": seo.index,\n"follow": seo.follow,\n"canonical": seo.canonical,\n\n    }': ContentMetaQueryResult;
     '*[_type == "frontPage"][0]{\n      \n"title": coalesce(seo.title, title),\n"description": seo.description,\n"featuredImage": coalesce(seo.featuredImage, mainImage),\n"index": seo.index,\n"follow": seo.follow,\n"canonical": seo.canonical,\n\n    }': HomePageMetaResult;
     '*[_type == "siteSettings"][0]{\n      \n"title": coalesce(seo.title, title),\n"description": seo.description,\n"featuredImage": coalesce(seo.featuredImage, mainImage),\n"index": seo.index,\n"follow": seo.follow,\n"canonical": seo.canonical,\n\n    }': LayoutMetaResult;

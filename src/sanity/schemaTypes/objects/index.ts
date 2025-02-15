@@ -1,6 +1,7 @@
 import { accordion } from "./accordion";
 import { defaultRichText } from "./defaultRichText";
 import { externalLink } from "./externalLink";
+import { headerlink } from "./headerLinks";
 import { internalLink } from "./internalLink";
 import { link } from "./link";
 import { blocks, pageBuilder } from "./pageBuilder";
@@ -16,6 +17,7 @@ export const objects = [
   simpleRichText,
   defaultRichText,
   link,
+  headerlink,
   seo,
   ...blocks,
   pageBuilder,
