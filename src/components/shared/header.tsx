@@ -1,7 +1,6 @@
 "use client";
 import { LayoutQueryResult } from "@/sanity/types";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { Dock, DockIcon, DockItem, DockLabel } from "../ui/dock";
 
 export type HeaderProps = NonNullable<LayoutQueryResult>["header"];
