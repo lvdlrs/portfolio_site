@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Container } from "../container";
 import { PageBuilderBlock } from "../page-builder";
 import { PortableText } from "../portable-text";
-import { LinkButton } from "../shared/link-button";
+import { LinkButtonIcon } from "../shared/link-button-icon";
 import { YouTube } from "../elements/youtube";
 import { ProseContent } from "../prose-content";
 
@@ -86,13 +86,13 @@ export function ProfileInfo(
                 <ul className="flex flex-col gap-4 items-center md:flex-row">
                   {props.links?.map((link, index) => (
                     <li key={link._key}>
-                      <LinkButton
+                      <LinkButtonIcon
                         href={link.href}
                         variant={index === 0 ? "default" : "ghost"}
                         inverted={props.variant === "alternative"}
                       >
                         {link.label}
-                      </LinkButton>
+                      </LinkButtonIcon>
                     </li>
                   ))}
                 </ul>
@@ -138,13 +138,13 @@ export function ProfileInfo(
                     <ul className="flex flex-col gap-4 sm:flex-row sm:items-center">
                       {props.links?.map((link, index) => (
                         <li key={link._key}>
-                          <LinkButton
+                          <LinkButtonIcon
                             href={link.href}
                             variant={index === 0 ? "default" : "ghost"}
                             inverted={props.variant === "alternative"}
                           >
                             {link.label}
-                          </LinkButton>
+                          </LinkButtonIcon>
                         </li>
                       ))}
                     </ul>

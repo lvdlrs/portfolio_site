@@ -168,7 +168,7 @@ _type == "profileInfo" => {
   },
   links[]{
     _key,
-    ${LINK_FRAGMENT}
+    ${ICON_LINK_FRAGMENT}
   }
 },
 _type == "textContent" => {

@@ -4,6 +4,7 @@ import { externalLink } from "./externalLink";
 import { headerlink } from "./headerLinks";
 import { internalLink } from "./internalLink";
 import { link } from "./link";
+import { linkwithicon } from "./linkswithicon";
 import { blocks, pageBuilder } from "./pageBuilder";
 import { seo } from "./seo";
 import { simpleRichText } from "./simpleRichText";
@@ -17,6 +18,7 @@ export const objects = [
   simpleRichText,
   defaultRichText,
   link,
+  linkwithicon,
   headerlink,
   seo,
   ...blocks,
