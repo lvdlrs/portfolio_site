@@ -144,6 +144,33 @@ _type == "textMedia" => {
     ${LINK_FRAGMENT}
   }
 },
+_type == "profileInfo" => {
+  title,
+  subtitle,
+  mediaPlacement,
+  mediaSize,
+  layout,
+  variant,
+  "media": select(
+    mediaType == "image" => image {
+      "_type": "image",
+      ${IMAGE_FRAGMENT}
+    },
+    mediaType == "video" => video {
+      "_type": "video",
+      ${VIDEO_FRAGMENT}
+    }
+  ),
+  content{
+    text[]{
+      ${SIMPLE_RICH_TEXT_FRAGMENT}
+    }
+  },
+  links[]{
+    _key,
+    ${LINK_FRAGMENT}
+  }
+},
 _type == "textContent" => {
   title,
   alignment,
