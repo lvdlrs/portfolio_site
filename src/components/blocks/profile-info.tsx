@@ -49,19 +49,31 @@ export function ProfileInfo(
             "basis-3/5": isThreeFourth
           })}>
             {isThreeFourth ? (
-              <div className="md:max-w-[600px] md:mx-auto">
-                {props.title && (
-              <Heading
-                className={cn(
-                  "text-foreground font-semibold",
-                  props.isHero
-                    ? "text-4xl md:text-6xl"
-                    : "text-3xl md:text-5xl",
+              <div className="md:max-w-[700px] md:mx-auto text-center md:text-left">
+                {(props.title || props.subtitle) && (
+                    <div className="md:pl-[60px] relative md:before:block before:hidden before:left-0 before:absolute before:top-[30px] before:w-[50px] before:h-[2px] before:rounded-xl before:bg-foreground dark:before:bg-white">
+                        {props.title && (
+                            <Heading
+                            className={cn(
+                                "text-foreground font-semibold dark:text-white",
+                                props.isHero
+                                ? "text-4xl md:text-6xl"
+                                : "text-3xl md:text-5xl",
+                            )}
+                            >
+                            {props.title}
+                            </Heading>
+                        )}
+                        {props.subtitle && (
+                            <span className={cn(
+                                "text-grey-medium font-semibold font-serif dark:text-white dark:text-opacity-75",
+                                props.isHero
+                                ? "text-4xl md:text-6xl"
+                                : "text-3xl md:text-5xl",
+                            )}>{props.subtitle}</span>
+                        )}
+                    </div>
                 )}
-              >
-                {props.title}
-              </Heading>
-            )}
             {props.content?.text && (
               <div className="mt-6">
                 <ProseContent>
@@ -71,7 +83,7 @@ export function ProfileInfo(
             )}
             {showLinks && (
               <div className="mt-8">
-                <ul className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <ul className="flex flex-col gap-4 items-center md:flex-row">
                   {props.links?.map((link, index) => (
                     <li key={link._key}>
                       <LinkButton
@@ -89,18 +101,30 @@ export function ProfileInfo(
               </div>
 
             ) : (
-              <div className="">
-                {props.title && (
-                  <Heading
-                    className={cn(
-                      "text-foreground font-semibold",
-                      props.isHero
-                        ? "text-3xl sm:text-5xl"
-                        : "text-2xl sm:text-4xl",
-                    )}
-                  >
-                    {props.title}
-                  </Heading>
+              <div className="text-center md:text-left">
+                {(props.title || props.subtitle) && (
+                    <div className="md:pl-[60px] relative before:left-0 before:block before:absolute before:top-[30px] before:w-[50px] before:h-[2px] before:rounded-xl before:bg-foreground dark:before:bg-white">
+                        {props.title && (
+                            <Heading
+                            className={cn(
+                                "text-foreground font-semibold dark:text-white",
+                                props.isHero
+                                ? "text-4xl md:text-6xl"
+                                : "text-3xl md:text-5xl",
+                            )}
+                            >
+                            {props.title}
+                            </Heading>
+                        )}
+                        {props.subtitle && (
+                            <span className={cn(
+                                "text-grey-medium font-semibold font-serif dark:text-white dark:text-opacity-75",
+                                props.isHero
+                                ? "text-4xl md:text-6xl"
+                                : "text-3xl md:text-5xl",
+                            )}>{props.subtitle}</span>
+                        )}
+                    </div>
                 )}
                 {props.content?.text && (
                   <div className="mt-6">
@@ -151,7 +175,7 @@ export function ProfileInfo(
                 width={800}
                 height={Math.floor(800 / aspectRatio)}
                 alt={media.alt ?? ""}
-                className="block max-w-full rounded-3xl"
+                className="block border-2 border-solid border-grey-medium md:border-none max-w-full w-[200px] h-[200px] md:w-full md:h-full aspect-square md:aspect-auto object-cover object-top md:object-center mx-auto rounded-full md:rounded-3xl"
                 priority={props.isHero}
                 loading={props.isHero ? "eager" : "lazy"}
               />

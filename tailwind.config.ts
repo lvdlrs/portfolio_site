@@ -39,7 +39,10 @@ const config: Config = {
         DEFAULT: "hsl(var(--black))",
         medium: "hsl(var(--black-medium))"
       },
-      grey: "hsl(var(--grey))"
+      grey: {
+        DEFAULT: "hsl(var(--grey))",
+        medium: "hsl(var(--grey-medium))"
+      }
     },
     container: {
       center: true,

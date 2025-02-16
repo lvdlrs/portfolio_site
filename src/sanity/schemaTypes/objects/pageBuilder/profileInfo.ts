@@ -75,7 +75,7 @@ export const profileInfo = defineType({
       name: "links",
       title: "Links",
       type: "array",
-      of: [{ type: "link" }],
+      of: [{ type: "linkwithicon" }],
       group: "content",
     }),
     defineField({

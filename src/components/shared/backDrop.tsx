@@ -7,6 +7,6 @@ export function BackDrop(){
   const currentType = pathname == '/' ? 'frontPage' : 'page';
 
     return(
-      currentType === 'frontPage' ? <div className="fixed h-[200%] w-full -rotate-[15deg] -left-[83%] -top-1/2 bg-black dark:bg-white"></div> : ""
+      currentType === 'frontPage' ? <div className="hidden md:block fixed h-[200%] w-full -rotate-[15deg] -left-[83%] -top-1/2 bg-black dark:bg-white"></div> : ""
     )
 }
