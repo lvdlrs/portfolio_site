@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function MenuItem(props: { label: string; href: string, icon: any }) {
+export function MenuItem(props: { label: string; href: string, icon?: {
+  metadata?:{
+  inlineSvg?: string
+  }
+  } }) {
   
   const pathname = usePathname();
 
