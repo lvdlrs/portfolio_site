@@ -39,9 +39,9 @@ export function ProfileInfo(
       >
         <div
           className={cn(
-            "flex flex-col-reverse gap-12 md:flex-row md:items-center",
+            "flex flex-col-reverse gap-12 lg:flex-row lg:items-center",
             {
-              "md:flex-row-reverse": isMediaLeft,
+              "lg:flex-row-reverse": isMediaLeft,
             },
           )}
         >
@@ -57,8 +57,8 @@ export function ProfileInfo(
                             className={cn(
                                 "text-foreground font-semibold dark:text-white",
                                 props.isHero
-                                ? "text-4xl md:text-6xl"
-                                : "text-3xl md:text-5xl",
+                                ? "text-4xl lg:text-6xl"
+                                : "text-3xl lg:text-5xl",
                             )}
                             >
                             {props.title}
@@ -68,8 +68,8 @@ export function ProfileInfo(
                             <span className={cn(
                                 "text-grey-medium font-semibold font-serif dark:text-white dark:text-opacity-75",
                                 props.isHero
-                                ? "text-4xl md:text-6xl"
-                                : "text-3xl md:text-5xl",
+                                ? "text-4xl lg:text-6xl"
+                                : "text-3xl lg:text-5xl",
                             )}>{props.subtitle}</span>
                         )}
                     </div>
@@ -109,8 +109,8 @@ export function ProfileInfo(
                             className={cn(
                                 "text-foreground font-semibold dark:text-white",
                                 props.isHero
-                                ? "text-4xl md:text-6xl"
-                                : "text-3xl md:text-5xl",
+                                ? "text-4xl lg:text-6xl"
+                                : "text-3xl lg:text-5xl",
                             )}
                             >
                             {props.title}
@@ -120,8 +120,8 @@ export function ProfileInfo(
                             <span className={cn(
                                 "text-grey-medium font-semibold font-serif dark:text-white dark:text-opacity-75",
                                 props.isHero
-                                ? "text-4xl md:text-6xl"
-                                : "text-3xl md:text-5xl",
+                                ? "text-4xl lg:text-6xl"
+                                : "text-3xl lg:text-5xl",
                             )}>{props.subtitle}</span>
                         )}
                     </div>
@@ -175,7 +175,7 @@ export function ProfileInfo(
                 width={800}
                 height={Math.floor(800 / aspectRatio)}
                 alt={media.alt ?? ""}
-                className="block border-2 border-solid border-grey-medium md:border-none max-w-full w-[200px] h-[200px] md:w-full md:h-full aspect-square md:aspect-auto object-cover object-top md:object-center mx-auto rounded-full md:rounded-3xl"
+                className="block border-2 border-solid border-grey-medium md:border-none max-w-full w-[200px] h-[200px] lg:w-full lg:h-full aspect-square md:aspect-auto object-cover object-top lg:object-center mx-auto md:ml-0 md:mr-auto rounded-full lg:rounded-3xl"
                 priority={props.isHero}
                 loading={props.isHero ? "eager" : "lazy"}
               />
