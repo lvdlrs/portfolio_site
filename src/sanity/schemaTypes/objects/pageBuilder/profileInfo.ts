@@ -28,7 +28,7 @@ export const profileInfo = defineType({
       type: "string",
       options: {
         list: [
-          { title: "Bilde", value: "image" },
+          { title: "Image", value: "image" },
           { title: "Video", value: "video" },
         ],
       },
