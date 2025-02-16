@@ -89,10 +89,10 @@ export function ProfileInfo(
                       <LinkButtonIcon
                         href={link.href}
                         variant={index === 0 ? "default" : "ghost"}
-                        inverted={props.variant === "alternative"}
-                      >
+                        icon={link.icon ? { metadata: { inlineSvg: link.icon.metadata?.inlineSvg ?? ""} } : undefined} 
+                        >
                         {link.label}
-                      </LinkButtonIcon>
+                        </LinkButtonIcon>
                     </li>
                   ))}
                 </ul>
@@ -141,7 +141,7 @@ export function ProfileInfo(
                           <LinkButtonIcon
                             href={link.href}
                             variant={index === 0 ? "default" : "ghost"}
-                            inverted={props.variant === "alternative"}
+                            icon={link.icon ? { metadata: { inlineSvg: link.icon.metadata?.inlineSvg ?? ""} } : undefined} 
                           >
                             {link.label}
                           </LinkButtonIcon>

@@ -19,7 +19,7 @@ export function Header(props: HeaderProps) {
             {props?.headerNavigation?.map((item)=>{
               return(
                 <li key={item._key}>
-                  <MenuItem label={item.label} href={"/"+item.href} icon={item.icon} />
+                  <MenuItem label={item.label} href={"/"+item.href} icon={item.icon ? { metadata: { inlineSvg: item.icon.metadata?.inlineSvg ?? ""} } : undefined}  />
                 </li>
               )
             })}

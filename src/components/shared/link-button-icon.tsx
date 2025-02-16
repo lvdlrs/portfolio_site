@@ -4,13 +4,16 @@ import { ReactNode } from "react";
 
 export function LinkButtonIcon({
   variant = "default",
-  inverted = false,
   ...props
 }: {
+  icon?: {
+    metadata?:{
+        inlineSvg?: string
+    }
+  },
   href: string | null;
   children: ReactNode;
   variant?: "default" | "ghost";
-  inverted?: boolean;
 }) {
 
   return (
@@ -21,14 +24,20 @@ export function LinkButtonIcon({
           "hover:bg-foreground bg-primary border-transparent text-white":
             variant === "default",
           "text-primary hover:border-primary bg-background border-transparent":
-            variant === "ghost",
-          "text-primary hover:border-primary border-transparent bg-white":
-            variant === "ghost" && inverted
+            variant === "ghost"
         },
       )}
       href={props.href ?? "#"}
     >
       <span>{props.children}</span>
+      {props.icon?.metadata?.inlineSvg && (
+        <span
+          className="w-full h-full flex items-center justify-center"
+          dangerouslySetInnerHTML={{
+            __html: props.icon.metadata.inlineSvg,
+          }}
+        />
+      )}
     </Link>
   );
 }
