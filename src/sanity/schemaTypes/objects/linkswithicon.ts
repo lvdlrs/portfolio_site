@@ -2,7 +2,7 @@ import { INTERNAL_LINK_TYPES } from "@/sanity/lib/constants";
 import { defineField, defineType } from "sanity";
 
 export const linkwithicon = defineType({
-  name: "linkicon",
+  name: "linkwithicon",
   title: "Link",
   type: "object",
   fields: [
