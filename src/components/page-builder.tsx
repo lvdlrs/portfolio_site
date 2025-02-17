@@ -10,6 +10,7 @@ import { FullWidthVIdeo } from "./blocks/full-width-video";
 import { TextContent } from "./blocks/text-content";
 import { TextMedia } from "./blocks/text-media";
 import { ProfileInfo } from "./blocks/profile-info";
+import { ExperienceInfo } from "./blocks/experience-info";
 
 export type PageBuilderContent = Extract<
   NonNullable<NonNullable<PageQueryResult>["content"]>,
@@ -49,6 +50,10 @@ function PageBuilderBlock({
 
   if (props.block._type === "profileInfo") {
     return <ProfileInfo {...props.block} isHero={isHero} />;
+  }
+
+  if (props.block._type === "experienceInfo") {
+    return <ExperienceInfo {...props.block} isHero={isHero} />;
   }
 }
 
