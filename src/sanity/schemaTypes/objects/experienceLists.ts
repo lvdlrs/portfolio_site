@@ -30,7 +30,7 @@ export const experienceList = defineType({
   ],
   preview: {
     select: {
-      title: "title",
+      title: "position",
     },
     prepare({ title }) {
       return {

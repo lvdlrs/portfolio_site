@@ -263,6 +263,23 @@ _type == "fullWidthVideo" => {
   video {
     ${VIDEO_FRAGMENT}
   }
+},
+_type == "experienceInfo" => {
+title,
+icon {
+  ${ICON_FRAGMENT}
+},
+"list": experiencelist[]{
+  _key,
+  pretitle,
+  position,
+  company,
+  content{
+    text[]{
+      ${SIMPLE_RICH_TEXT_FRAGMENT}
+    }
+  },
+}
 }
 `;
 

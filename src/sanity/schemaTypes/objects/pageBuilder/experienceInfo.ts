@@ -13,6 +13,11 @@ export const experienceInfo = defineType({
       type: "string",
     }),
     defineField({
+        name: "icon",
+        type: "icon.manager",
+        title: "Icon",
+    }),
+    defineField({
         name: "experiencelist",
         title: "List",
         type: "array",
