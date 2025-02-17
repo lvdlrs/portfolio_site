@@ -55,7 +55,7 @@ export function ProfileInfo(
                         {props.title && (
                             <Heading
                             className={cn(
-                                "text-foreground font-semibold dark:text-white",
+                                "text-foreground font-bold dark:text-white",
                                 props.isHero
                                 ? "text-4xl lg:text-6xl"
                                 : "text-3xl lg:text-5xl",
@@ -107,7 +107,7 @@ export function ProfileInfo(
                         {props.title && (
                             <Heading
                             className={cn(
-                                "text-foreground font-semibold dark:text-white",
+                                "text-foreground font-bold dark:text-white",
                                 props.isHero
                                 ? "text-4xl lg:text-6xl"
                                 : "text-3xl lg:text-5xl",
