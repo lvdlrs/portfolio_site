@@ -41,8 +41,8 @@ export const page = defineType({
       type: "string",
       options: {
         list: [
-          { title: "TekstContents", value: "text" },
-          { title: "Sidebygger", value: "builder" },
+          { title: "Text Content", value: "text" },
+          { title: "Page Builder", value: "builder" },
         ],
       },
       initialValue: "text",
