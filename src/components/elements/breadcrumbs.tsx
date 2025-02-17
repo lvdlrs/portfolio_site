@@ -33,7 +33,7 @@ export function Breadcrumbs(props: {
             className="decoration-primary underline underline-offset-2"
             href="/"
           >
-            Forside
+            Home
           </Link>
           <span className="opacity-70">/</span>
         </li>

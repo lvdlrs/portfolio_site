@@ -43,8 +43,8 @@ export function TextContent(
           {props.title && (
             <Heading
               className={cn(
-                "font-semibold text-foreground",
-                props.isHero ? "text-3xl sm:text-5xl" : "text-2xl sm:text-4xl",
+                "font-bold text-foreground relative",
+                props.isHero ? "text-3xl sm:text-4xl md:text-6xl" : "text-2xl sm:text-5xl",
               )}
             >
               {props.title}
