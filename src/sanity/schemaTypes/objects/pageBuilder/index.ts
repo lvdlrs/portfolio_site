@@ -7,6 +7,7 @@ import { textMedia } from "./textMedia";
 import { cardSection } from "./cardSection";
 import { EarthAmericasIcon } from "@sanity/icons";
 import { profileInfo } from "./profileInfo";
+import { experienceInfo } from "./experienceInfo";
 
 export const blocks = [
   textMedia,
@@ -15,7 +16,8 @@ export const blocks = [
   fullWidthImage,
   accordionSection,
   cardSection,
-  profileInfo
+  profileInfo,
+  experienceInfo
 ];
 
 export const pageBuilder = defineType({

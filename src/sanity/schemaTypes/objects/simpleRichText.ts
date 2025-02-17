@@ -7,7 +7,7 @@ export const simpleRichText = defineType({
   fields: [
     defineField({
       name: "text",
-      title: "Tekst",
+      title: "Text",
       type: "array",
       of: [
         defineArrayMember({
