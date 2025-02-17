@@ -48,6 +48,7 @@ export function TextContent(
               )}
             >
               {props.title}
+              {props.backdroptitle && (<span className="-z-[1] opacity-40 text-5xl sm:text-[100px] text-grey-medium absolute -translate-y-1/2 -translate-x-1/2 left-1/2 top-1/2">{props.backdroptitle}</span>)}
             </Heading>
           )}
           {props.content?.text && (
