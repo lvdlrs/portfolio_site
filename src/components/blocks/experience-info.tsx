@@ -7,6 +7,7 @@ import { LinkButtonIcon } from "../shared/link-button-icon";
 import { YouTube } from "../elements/youtube";
 import { ProseContent } from "../prose-content";
 import { AnimatedGroup } from "../ui/animatedGroupMotion";
+import { InView } from "../ui/inViewMotion";
 
 type ExperienceInfoProps = Extract<PageBuilderBlock, { _type: "experienceInfo" }>;
 
@@ -24,6 +25,14 @@ export function ExperienceInfo(
         <Container isHero={props.isHero}>
             <div className="flex flex-col gap-6">
             {props.title && (
+                <InView
+                variants={{
+                  hidden: { opacity: 0, y: 100, filter: 'blur(4px)' },
+                  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+                }}
+                viewOptions={{ margin: '0px 0px -100px 0px' }}
+                transition={{ duration: 0.6, ease: 'easeInOut' }}
+              >
                 <Heading
                 className={cn(
                     "text-foreground font-bold dark:text-white text-center",
@@ -34,6 +43,7 @@ export function ExperienceInfo(
                 >
                 {props.title}
                 </Heading>
+                </InView>
             )}
             <AnimatedGroup
             className='grid grid-cols-2 gap-y-5 md:gap-x-4 md:gap-y-8'
@@ -43,7 +53,7 @@ export function ExperienceInfo(
                 visible: {
                     opacity: 1,
                     transition: {
-                    staggerChildren: 0.05,
+                    staggerChildren: 0.1,
                     },
                 },
                 },
@@ -73,10 +83,10 @@ export function ExperienceInfo(
                         />
                     )}
                     <div className="flex flex-col gap-3">
-                        {item.pretitle && <p className="text-xs/none py-[6px] px-[6px] w-fit rounded-lg bg-black text-white">{item.pretitle}</p>}
-                        {(item.position || item.company) && <p className="uppercase flex items-center gap-2 text-lg font-bold">{item.position}{item.company && (<span className="opacity-50 relative pl-[14px]"><span className="w-[10px] h-[2px] bg-black block absolute left-0 top-[12px]"></span>{item.company}</span>)}</p>}
+                        {item.pretitle && <p className="text-xs/none py-[6px] px-[6px] w-fit rounded-lg bg-black text-white dark:bg-white dark:text-black">{item.pretitle}</p>}
+                        {(item.position || item.company) && <p className="uppercase flex items-center gap-2 text-lg font-bold">{item.position}{item.company && (<span className="opacity-50 relative pl-[14px]"><span className="w-[10px] h-[2px] bg-black block absolute left-0 top-[12px] dark:bg-grey"></span>{item.company}</span>)}</p>}
                         {item.content?.text && (
-                        <div className="relative prose prose-sm prose-li:my-0">
+                        <div className="relative prose prose-sm dark:prose-li:marker:text-white prose-li:my-0 dark:text-white">
                             <PortableText value={item.content.text ?? []} />
                         </div>
                         )}

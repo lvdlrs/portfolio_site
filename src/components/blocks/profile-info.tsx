@@ -75,7 +75,7 @@ export function ProfileInfo(
                         )}
                         {props.subtitle && (
                             <span className={cn(
-                                "text-grey-medium font-semibold font-serif dark:text-white dark:text-opacity-75",
+                                "text-grey-medium font-semibold font-serif dark:text-white dark:opacity-50",
                                 props.isHero
                                 ? "text-4xl lg:text-6xl"
                                 : "text-3xl lg:text-5xl",
@@ -127,7 +127,7 @@ export function ProfileInfo(
                         )}
                         {props.subtitle && (
                             <span className={cn(
-                                "text-grey-medium font-semibold font-serif dark:text-white dark:text-opacity-75",
+                                "text-grey-medium font-semibold font-serif dark:text-white dark:opacity-50",
                                 props.isHero
                                 ? "text-4xl lg:text-6xl"
                                 : "text-3xl lg:text-5xl",

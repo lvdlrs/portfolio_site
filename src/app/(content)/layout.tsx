@@ -11,6 +11,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import { Fragment } from "react";
 import { DisableDraftMode } from "@/components/misc/disable-preview-mode";
 import { BackDrop } from "@/components/shared/backDrop";
+import { ThemeProvider } from "@/components/shared/darkModeContext";
 
 export const metadata: Metadata = {
   title: {
@@ -36,13 +37,15 @@ export default async function RootLayout({
       )}
       <body
         id="top"
-        className={`${inter.variable} ${alegrey.variable} grid min-h-screen max-w-[100vw] grid-rows-[1fr_auto] overflow-x-clip bg-background antialiased [font-family:var(--font-sans)]`}
+        className={`${inter.variable} ${alegrey.variable} grid min-h-screen max-w-[100vw] grid-rows-[1fr_auto] overflow-x-clip antialiased [font-family:var(--font-sans)]`}
       >
+        <ThemeProvider>
         <Header {...(data?.header ?? undefined)} />
-        <main>
+        <main className="dark:text-white dark:bg-black">
           <BackDrop />
           {children}
         </main>
+        </ThemeProvider>
         {isDraftMode && (
           <Fragment>
             <VisualEditing />

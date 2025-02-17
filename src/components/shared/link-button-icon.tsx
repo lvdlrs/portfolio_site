@@ -32,7 +32,7 @@ export function LinkButtonIcon({
       <span>{props.children}</span>
       {props.icon?.metadata?.inlineSvg && (
         <span
-          className="size-[55px] rounded-full flex items-center justify-center absolute top-0 -right-[2px] bg-foreground text-white"
+          className="size-[55px] rounded-full flex items-center justify-center absolute top-0 -right-[2px] bg-foreground text-white dark:bg-white dark:text-black"
           dangerouslySetInnerHTML={{
             __html: props.icon.metadata.inlineSvg,
           }}
