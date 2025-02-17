@@ -35,10 +35,10 @@ export function ExperienceInfo(
               >
                 <Heading
                 className={cn(
-                    "text-foreground font-bold dark:text-white text-center",
+                    "text-foreground font-bold dark:text-white md:text-center",
                     props.isHero
-                    ? "text-4xl lg:text-6xl"
-                    : "text-3xl lg:text-4xl",
+                    ? "text-3xl lg:text-6xl"
+                    : "text-2xl lg:text-4xl",
                 )}
                 >
                 {props.title}
@@ -46,7 +46,7 @@ export function ExperienceInfo(
                 </InView>
             )}
             <AnimatedGroup
-            className='grid grid-cols-2 gap-y-5 md:gap-x-4 md:gap-y-8'
+            className='grid grid-cols-1 lg:grid-cols-2 gap-y-5 md:gap-x-4 md:gap-y-8'
             variants={{
                 container: {
                 hidden: { opacity: 0 },
@@ -73,16 +73,16 @@ export function ExperienceInfo(
             }}
             >
             {props.list?.map((item)=>( 
-                <div key={item._key} className="relative flex gap-4 before:absolute before:top-0 before:left-5 before:h-full before:w-[1px] before:bg-grey">
+                <div key={item._key} className="relative flex gap-4 before:absolute before:top-0 before:left-5 before:h-full before:w-[1px] before:bg-grey dark:before:bg-white dark:before:opacity-50">
                     {props.icon?.metadata?.inlineSvg && (
                         <span
-                        className="size-10 rounded-full flex items-center justify-center bg-foreground text-white relative z-[2]"
+                        className="size-10 rounded-full flex items-center justify-center bg-foreground text-white relative z-[2] dark:bg-white dark:text-black"
                         dangerouslySetInnerHTML={{
                             __html: props.icon.metadata.inlineSvg,
                         }}
                         />
                     )}
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 w-[calc(100%-56px)]">
                         {item.pretitle && <p className="text-xs/none py-[6px] px-[6px] w-fit rounded-lg bg-black text-white dark:bg-white dark:text-black">{item.pretitle}</p>}
                         {(item.position || item.company) && <p className="uppercase flex items-center gap-2 text-lg font-bold">{item.position}{item.company && (<span className="opacity-50 relative pl-[14px]"><span className="w-[10px] h-[2px] bg-black block absolute left-0 top-[12px] dark:bg-grey"></span>{item.company}</span>)}</p>}
                         {item.content?.text && (

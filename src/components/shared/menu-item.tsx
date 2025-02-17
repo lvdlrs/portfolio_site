@@ -12,7 +12,7 @@ export function MenuItem(props: { label: string; href: string, icon?: {
   const isActive = pathname === props.href;
 
   return (
-      <Link href={props.href} className={`group/linkicon relative size-[50px] block rounded-[50%] duration-300 ${isActive ? "bg-black text-white hover:bg-black hover:text-white dark:bg-white-dark dark:text-black" : "bg-grey hover:bg-black hover:text-white dark:bg-grey dark:text-black dark:hover:bg-white"}`}>
+      <Link href={props.href} className={`group/linkicon relative size-[50px] block rounded-[50%] duration-300 ${isActive ? "bg-black text-white hover:bg-black hover:text-white dark:bg-black-medium dark:text-white" : "bg-grey hover:bg-black hover:text-white dark:bg-grey dark:text-black dark:hover:bg-white"}`}>
       {props.icon?.metadata?.inlineSvg && (
         <div
           className="w-full h-full flex items-center justify-center"
