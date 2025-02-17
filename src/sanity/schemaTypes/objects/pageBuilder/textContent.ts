@@ -18,6 +18,12 @@ export const textContent = defineType({
       group: "content",
     }),
     defineField({
+      name: "backdroptitle",
+      title: "Backdrop Title",
+      type: "string",
+      group: "content",
+    }),
+    defineField({
       name: "content",
       title: "Contents",
       type: "simpleRichText",
@@ -36,9 +42,9 @@ export const textContent = defineType({
       type: "string",
       options: {
         list: [
-          { title: "Venstre", value: "left" },
-          { title: "Midten", value: "center" },
-          { title: "Høyre", value: "right" },
+          { title: "Left", value: "left" },
+          { title: "Center", value: "center" },
+          { title: "Right", value: "right" },
         ],
       },
       initialValue: "left",
@@ -66,7 +72,7 @@ export const textContent = defineType({
       options: {
         list: [
           { title: "Standard", value: "default" },
-          { title: "Kolonner", value: "columns" },
+          { title: "Columns", value: "columns" },
         ],
       },
       initialValue: "default",

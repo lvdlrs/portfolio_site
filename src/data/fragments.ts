@@ -173,6 +173,7 @@ _type == "profileInfo" => {
 },
 _type == "textContent" => {
   title,
+  backdroptitle,
   alignment,
   variant,
   layout,
