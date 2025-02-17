@@ -5,6 +5,7 @@ import { PageBuilderBlock } from "../page-builder";
 import { PortableText } from "../portable-text";
 import { ProseContent } from "../prose-content";
 import { LinkButton } from "../shared/link-button";
+import { InView } from "../ui/inViewMotion";
 
 type TextContentProps = Extract<PageBuilderBlock, { _type: "textContent" }>;
 
@@ -21,6 +22,14 @@ export function TextContent(
   const alignment = cleanStega(props.alignment);
 
   return (
+    <InView
+          variants={{
+            hidden: { opacity: 0, y: 100, filter: 'blur(4px)' },
+            visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+          }}
+          viewOptions={{ margin: '0px 0px -200px 0px' }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+        >
     <Container variant={variant} isHero={props.isHero}>
       <section className="mx-auto max-w py-12 md:py-24">
         <div
@@ -85,5 +94,6 @@ export function TextContent(
         </div>
       </section>
     </Container>
+    </InView>
   );
 }

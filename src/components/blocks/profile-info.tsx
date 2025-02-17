@@ -7,6 +7,7 @@ import { PortableText } from "../portable-text";
 import { LinkButtonIcon } from "../shared/link-button-icon";
 import { YouTube } from "../elements/youtube";
 import { ProseContent } from "../prose-content";
+import { InView } from "../ui/inViewMotion";
 
 type ProfileInfoProps = Extract<PageBuilderBlock, { _type: "profileInfo" }>;
 
@@ -31,6 +32,14 @@ export function ProfileInfo(
   const Heading = props.isHero ? "h1" : "h2";
 
   return (
+    <InView
+        variants={{
+          hidden: { opacity: 0, y: 100, filter: 'blur(4px)' },
+          visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+        }}
+        viewOptions={{ margin: '0px 0px -200px 0px' }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
+      >
     <Container isHero={props.isHero} variant={props.variant}>
       <section
         className={cn("max-w mx-auto py-12 md:py-24", {
@@ -184,5 +193,6 @@ export function ProfileInfo(
         </div>
       </section>
     </Container>
+    </InView>
   );
 }
